@@ -6,14 +6,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./barna-statistics.component.css']
 })
 export class BarnaStatisticsComponent implements OnInit {
-  isbaranastatic = true;
+  // isbaranastatic = true;
   @Output() barnaComp = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
-  toggleclosebtn(){
-    //this.isbaranastatic = !this.isbaranastatic;
+  
+  togglecloseb() {
+
     this.barnaComp.emit(false);
   }
 }

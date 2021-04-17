@@ -13,6 +13,7 @@ import { PositionsService } from 'src/app/service/positions.service';
 })
 export class FlagsComponent implements OnInit {
   isflag = true;
+  @Output() thisflag = new EventEmitter<boolean>();
   userlist: any;
   countryList: any;
   ChatFlagFrom: FormGroup | undefined;
@@ -23,7 +24,7 @@ export class FlagsComponent implements OnInit {
   state = '';
   dashboard: Array<GridsterItem> = []
   loaded = false;
-  @Output() thisflag = new EventEmitter<boolean>();
+
   @Input('width') public width: number | undefined;
   @Input('height') public height: number | undefined;
   @Input('left') public left: number | undefined;

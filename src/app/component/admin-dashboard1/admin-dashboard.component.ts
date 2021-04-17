@@ -407,7 +407,7 @@ export class AdminDashboardComponent implements OnInit {
   }
   //barna statics
   barnastaticsthis = {
-    baranathis: (e: any) => {
+    barnaComp: (e: any) => {
       this.barnastatistics = e;
       this.onCheckboxChangebaranastatic()
     }
@@ -415,6 +415,7 @@ export class AdminDashboardComponent implements OnInit {
 
   barnastatic?: boolean
   onCheckboxChangebaranastatic() {
+    alert("hello")
     if (this.barnastatic) {
       setTimeout(() => {
         this.barnastatic = false

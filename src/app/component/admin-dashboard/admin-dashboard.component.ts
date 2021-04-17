@@ -64,6 +64,7 @@ export class AdminDashboardComponent implements OnInit {
   listedDates: SelectedDays[] = [];
   pdfqu?: boolean
   mp3?: boolean
+  barnastatic?: boolean
   chatqueue = false;
   workarea = false;
   bible = false;
@@ -448,20 +449,24 @@ export class AdminDashboardComponent implements OnInit {
   }
   //barna statics
   barnastaticsthis = {
-    baranathis: (e: any) => {
+    barnaComp: (e: any) => {
       this.barnastatistics = e;
       this.onCheckboxChangebaranastatic()
     }
+    
   }
 
-  barnastatic?: boolean
+
   onCheckboxChangebaranastatic() {
     if (this.barnastatic) {
       setTimeout(() => {
+       
         this.barnastatic = false
       });
     } else {
-      this.barnastatic = true
+     
+      this.barnastatic = true;
+      console.log("hello")
     }
   }
   Journeythis = {

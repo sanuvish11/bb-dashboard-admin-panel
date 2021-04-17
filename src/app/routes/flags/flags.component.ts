@@ -13,7 +13,7 @@ export class FlagsRoutingComponent implements OnInit {
 
   options?: GridsterConfig;
   loaded = false;
-  // viewflagChatBox = false
+  viewflagChatBox = false
   
 
   constructor( private router : Router ,private positionServc: PositionsService ) { }
@@ -74,17 +74,17 @@ export class FlagsRoutingComponent implements OnInit {
     // this.getPositionsFromLS();
   }
 
-  // roomdetails:any
+  roomdetails:any
 
-  // Roomdetail(e:any){
-  //   console.log(e)
-    // this.viewflagChatBox = true
-  //   this.roomdetails = e
-  // }
+  Roomdetail(e:any){
+    console.log(e)
+    this.viewflagChatBox = true
+    this.roomdetails = e
+  }
 
-  // flageChatBoxInput(e :any){
-  //   // this.viewflagChatBox= e
-  // }
+  flageChatBoxInput(e :any){
+    // this.viewflagChatBox= e
+  }
   iscollapsed = false
   toggleSidebar(){
     this.iscollapsed = !this.iscollapsed

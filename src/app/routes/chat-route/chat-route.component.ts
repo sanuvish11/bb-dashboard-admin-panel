@@ -32,9 +32,9 @@ declare var $el: JQuery;
 export class ChatRouteComponent implements OnInit {
   // chat = true;
   iscollapsed = false;
-  route :any
-  positionLs :any
-  pickedComponent : any;
+  route: any
+  positionLs: any
+  pickedComponent: any;
 
   options?: GridsterConfig;
   loaded = false;
@@ -77,594 +77,242 @@ export class ChatRouteComponent implements OnInit {
   //   { chatQueueCB :  true },
   // {bibleCB : true}]
 
-  Compononent:any = []
+  Compononent: any = []
 
-//  Compononent = {
-//     chatQueueCB : {
-//       is_active : false,
-//       x : 0,
-//       y : 0,
-//       rows : 3,
-//       cols :  4,
-//         },
-//     workareaCB :{
-//       is_active :false,
-//       x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     bibleCB :{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     WorkAreaNotesCB:{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     strongsCB : {
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     crossReferenceCB :{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     personalFavsCB :{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     chatHistoryCB:{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     calendarCB :{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     mp3TabCB :{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     pdfQuotesTabCB:{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//     barnaStatisticsCB :{
-//         is_active :false,
-//         x : 0,
-//       y : 0,
-//       rows : 5,
-//       cols : 5,
-//     },
-//   } 
+  //  Compononent = {
+  //     chatQueueCB : {
+  //       is_active : false,
+  //       x : 0,
+  //       y : 0,
+  //       rows : 3,
+  //       cols :  4,
+  //         },
+  //     workareaCB :{
+  //       is_active :false,
+  //       x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     bibleCB :{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     WorkAreaNotesCB:{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     strongsCB : {
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     crossReferenceCB :{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     personalFavsCB :{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     chatHistoryCB:{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     calendarCB :{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     mp3TabCB :{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     pdfQuotesTabCB:{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //     barnaStatisticsCB :{
+  //         is_active :false,
+  //         x : 0,
+  //       y : 0,
+  //       rows : 5,
+  //       cols : 5,
+  //     },
+  //   } 
 
   // comp = [
   //   {name : this.component1, is_active: true, id : "chatQueue" , rows : 5 , cols : 3, x:0, y :0 },
-    
+
   //   {name : this.component4,  is_active: false,id : "bible" , rows : 5 , cols : 3, x:3, y :0 }
   // ]
 
   // dashboardCounter = 0 
   // dashboardCounterLs :any
- 
-  constructor(private positionServc: PositionsService , private router : Router) {
-  //   this.positionLs=localStorage.getItem('dashBoardComponent');
-  //   let posobj = JSON.parse(this.positionLs);
-  // console.log(posobj);
 
-     if(localStorage.getItem('chatComponent') == null || localStorage.getItem('chatComponent') == undefined){
+  constructor(private positionServc: PositionsService, private router: Router) {
+    //   this.positionLs=localStorage.getItem('dashBoardComponent');
+    //   let posobj = JSON.parse(this.positionLs);
+    // console.log(posobj);
+
+    if (localStorage.getItem('chatComponent') == null || localStorage.getItem('chatComponent') == undefined) {
       this.Compononent = [{
-          widget : "chatQueueCB",
-          is_active : false,
-          x : 0,
-          y : 0,
-          rows : 3,
-          cols :  4,
-        },
-         {
-          widget : "workareaCB",
-          is_active :false,
-          x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "bibleCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "WorkAreaNotesCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-          {
-          widget : "strongsCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-         {
-          widget : "crossReferenceCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "personalFavsCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "chatHistoryCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "calendarCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "mp3TabCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "pdfQuotesTabCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "barnaStatisticsCB",
-            is_active :false,
-            x : 0,
-          y : 0,
-          rows : 5,
-          cols : 5,
-        },
-        {
-          widget : "chatBoxCB",
-            is_active :true,
-            x : 0,
-          y : 0,
-          rows : 3,
-          cols : 4,
-        }
+        widget: "chatQueueCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 3,
+        cols: 4,
+      },
+      {
+        widget: "workareaCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "bibleCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "WorkAreaNotesCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "strongsCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "crossReferenceCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "personalFavsCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "chatHistoryCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "calendarCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "mp3TabCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "pdfQuotesTabCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "barnaStatisticsCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "chatBoxCB",
+        is_active: true,
+        x: 0,
+        y: 0,
+        rows: 3,
+        cols: 4,
+      }
       ]
-      
-      // this.Compononent = {
-      //   chatQueueCB : {
-      //     is_active : false,
-      //     x : 0,
-      //     y : 0,
-      //     rows : 3,
-      //     cols :  4,
-      //       },
-      //   workareaCB :{
-      //     is_active :false,
-      //     x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   bibleCB :{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   WorkAreaNotesCB:{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   strongsCB : {
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   crossReferenceCB :{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   personalFavsCB :{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   chatHistoryCB:{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   calendarCB :{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   mp3TabCB :{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   pdfQuotesTabCB:{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      //   barnaStatisticsCB :{
-      //       is_active :false,
-      //       x : 0,
-      //     y : 0,
-      //     rows : 5,
-      //     cols : 5,
-      //   },
-      // } 
-    
+
+   
     }
-    else{
+    else {
       this.Compononent = this.getPositionsFromLS();
       console.log(this.Compononent)
     }
-   
+
     this.gridsterInit();
 
-    // console.log(this.Compononent.chatQueueCB.is_active)
+
   }
 
   ngOnInit(): void {
-    
+
   }
 
 
-  getPositionsFromLS(){
-  this.positionLs=localStorage.getItem('chatComponent');
-   let posobj = JSON.parse(this.positionLs);
-  console.log(posobj);
-  return posobj;
-  
+  getPositionsFromLS() {
+    this.positionLs = localStorage.getItem('chatComponent');
+    let posobj = JSON.parse(this.positionLs);
+    console.log(posobj);
+    return posobj;
 
-
-//   let Comp = [{
-    
-//       widget : "chatQueueCB",
-//       is_active :posobj.chatQueueCB.is_active,
-//       x : posobj.chatQueueCB.x,
-//       y : posobj.chatQueueCB.y,
-//       rows : posobj.chatQueueCB.rows,
-//       cols :  posobj.chatQueueCB.cols,
-//         },
-//     {
-//       widget : "workareaCB",
-//       is_active :posobj.workareaCB.is_active,
-//       x : posobj.workareaCB.x,
-//       y : posobj.workareaCB.y,
-//       rows : posobj.workareaCB.rows,
-//       cols : posobj.workareaCB.cols,
-//     },
-//     {
-//       widget : "bibleCB",
-//         is_active :posobj.bibleCB.is_active,
-//         x : posobj.bibleCB.x,
-//       y : posobj.bibleCB.y,
-//       rows : posobj.bibleCB.rows,
-//       cols : posobj.bibleCB.cols,
-//     },
-//     {
-//       widget : "WorkAreaNotesCB",
-//         is_active :posobj.WorkAreaNotesCB.is_active,
-//         x : posobj.WorkAreaNotesCB.x,
-//       y : posobj.WorkAreaNotesCB.y,
-//       rows : posobj.WorkAreaNotesCB.rows,
-//       cols : posobj.WorkAreaNotesCB.cols,
-//     },
-//      {
-//       widget : "strongsCB",
-//         is_active :posobj.strongsCB.is_active,
-//         x : posobj.strongsCB.x,
-//       y : posobj.strongsCB.y,
-//       rows : posobj.strongsCB.rows,
-//       cols : posobj.strongsCB.cols,
-//     },
-//  {
-//       widget : "crossReferenceCB",
-//         is_active :posobj.crossReferenceCB.is_active,
-//         x : posobj.crossReferenceCB.x,
-//       y : posobj.crossReferenceCB.y,
-//       rows : posobj.crossReferenceCB.rows,
-//       cols : posobj.crossReferenceCB.cols,
-//     },
-//     {
-//       widget : "personalFavsCB",
-//         is_active :posobj.personalFavsCB.is_active,
-//         x : posobj.personalFavsCB.x,
-//       y : posobj.personalFavsCB.y,
-//       rows : posobj.personalFavsCB.rows,
-//       cols : posobj.personalFavsCB.cols,
-//     },
-//     {
-//       widget : "chatHistoryCB",
-//         is_active :posobj.chatHistoryCB.is_active,
-//         x : posobj.chatHistoryCB.x,
-//       y : posobj.chatHistoryCB.y,
-//       rows : posobj.chatHistoryCB.rows,
-//       cols : posobj.chatHistoryCB.cols,
-//     },
-//     {
-//       widget : "calendarCB",
-//         is_active :posobj.calendarCB.is_active,
-//         x : posobj.calendarCB.x,
-//       y : posobj.calendarCB.y,
-//       rows : posobj.calendarCB.rows,
-//       cols : posobj.calendarCB.cols,
-//     },
-//     {
-//       widget : "mp3TabCB",
-//         is_active :posobj.mp3TabCB.is_active,
-//         x : posobj.mp3TabCB.x,
-//       y : posobj.mp3TabCB.y,
-//       rows : posobj.mp3TabCB.rows,
-//       cols : posobj.mp3TabCB.cols,
-//     },
-//     {
-//       widget : "pdfQuotesTabCB",
-//         is_active :posobj.pdfQuotesTabCB.is_active,
-//         x : posobj.pdfQuotesTabCB.x,
-//       y : posobj.pdfQuotesTabCB.y,
-//       rows : posobj.pdfQuotesTabCB.rows,
-//       cols : posobj.pdfQuotesTabCB.cols,
-//     },
-//     {
-//       widget : "barnaStatisticsCB",
-//         is_active :posobj.barnaStatisticsCB.is_active,
-//         x : posobj.barnaStatisticsCB.x,
-//       y : posobj.barnaStatisticsCB.y,
-//       rows : posobj.barnaStatisticsCB.rows,
-//       cols : posobj.barnaStatisticsCB.cols,
-//     },
-//    ]
-
-
-
-
-  //workareaNotes 
-  // let Comp = {
-  //   chatQueueCB : {
-  //     widget : "chatQueueCB",
-  //     is_active :posobj.chatQueueCB.is_active,
-  //     x : posobj.chatQueueCB.x,
-  //     y : posobj.chatQueueCB.y,
-  //     rows : posobj.chatQueueCB.rows,
-  //     cols :  posobj.chatQueueCB.cols,
-  //       },
-  //   workareaCB :{
-  //     widget : "workareaCB",
-  //     is_active :posobj.workareaCB.is_active,
-  //     x : posobj.workareaCB.x,
-  //     y : posobj.workareaCB.y,
-  //     rows : posobj.workareaCB.rows,
-  //     cols : posobj.workareaCB.cols,
-  //   },
-  //   bibleCB :{
-  //     widget : "bibleCB",
-  //       is_active :posobj.bibleCB.is_active,
-  //       x : posobj.bibleCB.x,
-  //     y : posobj.bibleCB.y,
-  //     rows : posobj.bibleCB.rows,
-  //     cols : posobj.bibleCB.cols,
-  //   },
-  //   WorkAreaNotesCB:{
-  //     widget : "WorkAreaNotesCB",
-  //       is_active :posobj.WorkAreaNotesCB.is_active,
-  //       x : posobj.WorkAreaNotesCB.x,
-  //     y : posobj.WorkAreaNotesCB.y,
-  //     rows : posobj.WorkAreaNotesCB.rows,
-  //     cols : posobj.WorkAreaNotesCB.cols,
-  //   },
-  //   strongsCB : {
-  //     widget : "strongsCB",
-  //       is_active :posobj.strongsCB.is_active,
-  //       x : posobj.strongsCB.x,
-  //     y : posobj.strongsCB.y,
-  //     rows : posobj.strongsCB.rows,
-  //     cols : posobj.strongsCB.cols,
-  //   },
-  //   crossReferenceCB :{
-  //     widget : "crossReferenceCB",
-  //       is_active :posobj.crossReferenceCB.is_active,
-  //       x : posobj.crossReferenceCB.x,
-  //     y : posobj.crossReferenceCB.y,
-  //     rows : posobj.crossReferenceCB.rows,
-  //     cols : posobj.crossReferenceCB.cols,
-  //   },
-  //   personalFavsCB :{
-  //     widget : "personalFavsCB",
-  //       is_active :posobj.personalFavsCB.is_active,
-  //       x : posobj.personalFavsCB.x,
-  //     y : posobj.personalFavsCB.y,
-  //     rows : posobj.personalFavsCB.rows,
-  //     cols : posobj.personalFavsCB.cols,
-  //   },
-  //   chatHistoryCB:{
-  //     widget : "chatHistoryCB",
-  //       is_active :posobj.chatHistoryCB.is_active,
-  //       x : posobj.chatHistoryCB.x,
-  //     y : posobj.chatHistoryCB.y,
-  //     rows : posobj.chatHistoryCB.rows,
-  //     cols : posobj.chatHistoryCB.cols,
-  //   },
-  //   calendarCB :{
-  //     widget : "calendarCB",
-  //       is_active :posobj.calendarCB.is_active,
-  //       x : posobj.calendarCB.x,
-  //     y : posobj.calendarCB.y,
-  //     rows : posobj.calendarCB.rows,
-  //     cols : posobj.calendarCB.cols,
-  //   },
-  //   mp3TabCB :{
-  //     widget : "mp3TabCB",
-  //       is_active :posobj.mp3TabCB.is_active,
-  //       x : posobj.mp3TabCB.x,
-  //     y : posobj.mp3TabCB.y,
-  //     rows : posobj.mp3TabCB.rows,
-  //     cols : posobj.mp3TabCB.cols,
-  //   },
-  //   pdfQuotesTabCB:{
-  //     widget : "pdfQuotesTabCB",
-  //       is_active :posobj.pdfQuotesTabCB.is_active,
-  //       x : posobj.pdfQuotesTabCB.x,
-  //     y : posobj.pdfQuotesTabCB.y,
-  //     rows : posobj.pdfQuotesTabCB.rows,
-  //     cols : posobj.pdfQuotesTabCB.cols,
-  //   },
-  //   barnaStatisticsCB :{
-  //     widget : "barnaStatisticsCB",
-  //       is_active :posobj.barnaStatisticsCB.is_active,
-  //       x : posobj.barnaStatisticsCB.x,
-  //     y : posobj.barnaStatisticsCB.y,
-  //     rows : posobj.barnaStatisticsCB.rows,
-  //     cols : posobj.barnaStatisticsCB.cols,
-  //   },
-  // } 
-  //this.loaded = true
-
-//return Comp;
- // this.loaded = true;
   }
-
-
-  
-//   toggleSideMenuFunction(event : any){
-//     console.log(event)
-
-
-//     if(event.param == 'chatQueueCB' ){
-//         this.Compononent.chatQueueCB.is_active = event.status;
-//     }
-//     if(event.param == 'workareaCB' ){
-//       this.Compononent.workareaCB.is_active = event.status;  
-//   }
-//     if(event.param == 'bibleCB' ){
-//       this.Compononent.bibleCB.is_active = event.status;
-//   }
-//   if(event.param == 'WorkAreaNotesCB' ){
-//     this.Compononent.WorkAreaNotesCB.is_active = event.status;
-  
-// }
-//     if(event.param == 'strongsCB' ){
-//       this.Compononent.strongsCB.is_active = event.status;
-  
-//     }
-//     if(event.param == 'crossReferenceCB' ){
-//       this.Compononent.crossReferenceCB.is_active = event.status;
-  
-//   }
-//   if(event.param == 'personalFavsCB' ){
-//     this.Compononent.personalFavsCB.is_active = event.status;
-
-// }
-// if(event.param == 'chatHistoryCB' ){
-//   this.Compononent.chatHistoryCB.is_active = event.status;
-
-// }
-// if(event.param == 'calendarCB' ){
-//   this.Compononent.calendarCB.is_active = event.status;
-
-// }
-// if(event.param == 'mp3TabCB' ){
-//   this.Compononent.mp3TabCB.is_active = event.status;
-
-// }
-// if(event.param == 'pdfQuotesTabCB' ){
-//   this.Compononent.pdfQuotesTabCB.is_active = event.status;
-
-// }
-// if(event.param == 'barnaStatisticsCB' ){
-//   this.Compononent.barnaStatisticsCB.is_active = event.status;
-// }  
-// localStorage.setItem('dashBoardComponent',JSON.stringify(this.Compononent))
-//  //this.getPositionsFromLS()
-// this.loaded = true
-
-
-//   }
-
-  gridsterInit(){
+  gridsterInit() {
     this.options = {
-      
       fixedRowHeight: 90,
       gridType: 'fixed',
       compactType: CompactType.None,
@@ -705,8 +353,8 @@ export class ChatRouteComponent implements OnInit {
 
     this.positionServc.getPositions().subscribe((positions) => {
       //this.dashboard = positions;
-     console.log(positions)
-     this.loaded = true
+      console.log(positions)
+      this.loaded = true
     })
     // this.getPositionsFromLS();
   }
@@ -720,25 +368,25 @@ export class ChatRouteComponent implements OnInit {
       console.log(itemComponent)
       this.saveCoordinatesLS(item);
       //this.getPositionsFromLS()
-          
-       }
-     
+
+    }
+
   };
   itemResize(item: any, itemComponent: any) {
     console.info('itemResized', item, itemComponent);
-   
-       this.saveCoordinatesLS(item);
-      // this.dashboardCounter ++
-    
-  
-        
-     // this.getPositionsFromLS()
+
+    this.saveCoordinatesLS(item);
+    // this.dashboardCounter ++
+
+
+
+    // this.getPositionsFromLS()
   }
 
-  saveCoordinatesLS(item : any){
+  saveCoordinatesLS(item: any) {
 
-    for(let i = 0; i<this.Compononent.length ; i ++ ){
-      if(this.Compononent[i].widget == this.pickedComponent){
+    for (let i = 0; i < this.Compononent.length; i++) {
+      if (this.Compononent[i].widget == this.pickedComponent) {
         this.Compononent[i].rows = item.rows
         this.Compononent[i].cols = item.cols
         this.Compononent[i].x = item.x
@@ -821,7 +469,7 @@ export class ChatRouteComponent implements OnInit {
     //   this.Compononent.barnaStatisticsCB.x = item.x;
     //   this.Compononent.barnaStatisticsCB.y = item.y;      
     // }
-    localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
+    localStorage.setItem('chatComponent', JSON.stringify(this.Compononent));
 
   }
 
@@ -830,21 +478,21 @@ export class ChatRouteComponent implements OnInit {
 
 
 
-  
 
-  componentPicked(e : any){
+
+  componentPicked(e: any) {
     // console.log(e.target.outerText)
-  console.log(e)
+    console.log(e)
     // console.log(e.target.id)
     this.pickedComponent = e
   }
 
   data: any =
-  [
-    {
-      "parentName": "Navigation Panel",
-    },
-  ];
+    [
+      {
+        "parentName": "Navigation Panel",
+      },
+    ];
   toggleAccordian(event: any, index: number) {
     var element = event.target;
     element.classList.toggle("active");
@@ -861,367 +509,300 @@ export class ChatRouteComponent implements OnInit {
     }
   }
 
-  movetoLs :any = []
+  movetoLs: any = []
 
   toggleVisibility(pramId: any) {
-    console.log(pramId)   
+    console.log(pramId)
     // let fias = this.Compononent.find((x :any)=> x.widget === pramId)
     // console.log(fias);
-      let selectedComp= this.Compononent.find((obj :any) => obj.widget === pramId).is_active =!  this.Compononent.find((obj :any) => obj.widget === pramId).is_active 
-      let ObjinArray = this.Compononent.find((x :any)=> x.widget === pramId)
-      console.log(ObjinArray);
-      console.log(selectedComp)
-      if(selectedComp == false){
-        this.spliceObjectfromArray(pramId)
-        // this.movetoLs.push(ObjinArray)
-        // console.log(this.movetoLs)
-      }
-    
-      // this.Compononent[]
-      
+    let selectedComp = this.Compononent.find((obj: any) => obj.widget === pramId).is_active = !this.Compononent.find((obj: any) => obj.widget === pramId).is_active
+    let ObjinArray = this.Compononent.find((x: any) => x.widget === pramId)
+    console.log(ObjinArray);
+    console.log(selectedComp)
+    if (selectedComp == false) {
+      this.spliceObjectfromArray(pramId)
+      // this.movetoLs.push(ObjinArray)
+      // console.log(this.movetoLs)
+    }
 
-      
-      
-      
-
-
-    
+    // this.Compononent[]
 
 
 
-// oldcode starts
-//     if (pramId == "chatQueueCB") {
-//       this.Compononent.chatQueueCB.is_active = !this.Compononent.chatQueueCB.is_active
-//       // console.log(this.chatQueueCB)
-//       // this.toggleSideMenu.emit({param : 'chatQueueCB',status : this.chatQueueCB})
-//     }
-//     if (pramId == "workareaCB") {
-//       this.Compononent.workareaCB.is_active = !this.Compononent.workareaCB.is_active;
-//       // this.toggleSideMenu.emit({param : 'workareaCB',status : this.workareaCB})
-//     }
-//     if (pramId == "bibleCB") {
-//       this.Compononent.bibleCB.is_active = !this.Compononent.bibleCB.is_active;
-
-//       // this.bibleCB = !this.bibleCB;
-//       // this.toggleSideMenu.emit({param : 'bibleCB',status : this.bibleCB})
-//     }
-//     if (pramId == "WorkAreaNotesCB") {
-//       this.Compononent.WorkAreaNotesCB.is_active = !this.Compononent.WorkAreaNotesCB.is_active;
-
-//       // this.WorkAreaNotesCB = !this.WorkAreaNotesCB;
-//       // this.toggleSideMenu.emit({param : 'WorkAreaNotesCB',status : this.WorkAreaNotesCB})
-//     }
-//     if (pramId == "strongsCB") {
-//       this.Compononent.strongsCB.is_active = !this.Compononent.strongsCB.is_active;
-//       // this.strongsCB = !this.strongsCB;
-//       // this.toggleSideMenu.emit({param : 'strongsCB',status : this.strongsCB})
-//     }
-//     // // if (pramId == "lustdecent") {
-//     // //   this.lustdecent = !this.lustdecent;
-//     // // }
-//     if (pramId == "crossReferenceCB") {
-//       this.Compononent.crossReferenceCB.is_active = !this.Compononent.crossReferenceCB.is_active;
-//       // this.crossReferenceCB = !this.crossReferenceCB;
-//       // this.toggleSideMenu.emit({param : 'crossReferenceCB',status : this.crossReferenceCB})
-//     }
-//     if (pramId == "personalFavsCB") {
-//       this.Compononent.personalFavsCB.is_active = !this.Compononent.personalFavsCB.is_active;
-
-//       // this.personalFavsCB = !this.personalFavsCB;
-//       // this.toggleSideMenu.emit({param : 'personalFavsCB',status : this.personalFavsCB})
-//     }
-//     if (pramId == "chatHistoryCB") {
-//       this.Compononent.chatHistoryCB.is_active = !this.Compononent.chatHistoryCB.is_active;
-
-//       // this.chatHistoryCB = !this.chatHistoryCB;
-//       // this.toggleSideMenu.emit({param : 'chatHistoryCB',status : this.chatHistoryCB})
-//     }
-//     if (pramId == "calendarCB") {
-//       this.Compononent.calendarCB.is_active = !this.Compononent.calendarCB.is_active;
-
-//       // this.calendarCB = !this.calendarCB;
-//       // this.toggleSideMenu.emit({param : 'calendarCB',status : this.calendarCB})
-//     }
-//     if (pramId == "pdfQuotesTabCB") {
-//       this.Compononent.pdfQuotesTabCB.is_active = !this.Compononent.pdfQuotesTabCB.is_active;
-
-//       // this.pdfQuotesTabCB = !this.pdfQuotesTabCB;
-//       // this.toggleSideMenu.emit({param : 'pdfQuotesTabCB',status : this.pdfQuotesTabCB})
-//     }
-//     if (pramId == "barnaStatisticsCB") {
-//       this.Compononent.barnaStatisticsCB.is_active = !this.Compononent.barnaStatisticsCB.is_active;
-
-//       // this.barnaStatisticsCB = !this.barnaStatisticsCB;
-//       // this.toggleSideMenu.emit({param : 'barnaStatisticsCB',status : this.barnaStatisticsCB})
-//     }
-//     if (pramId == "mp3TabCB") {
-//       this.Compononent.mp3TabCB.is_active = !this.Compononent.mp3TabCB.is_active;
-
-//       // this.mp3TabCB = !this.mp3TabCB;
-//       // this.toggleSideMenu.emit({param : 'mp3TabCB',status : this.mp3TabCB})
-//     }
 
 
-//     oldcode ends
-    localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
+
+
+
+
+
+
+    // oldcode starts
+    //     if (pramId == "chatQueueCB") {
+    //       this.Compononent.chatQueueCB.is_active = !this.Compononent.chatQueueCB.is_active
+    //       // console.log(this.chatQueueCB)
+    //       // this.toggleSideMenu.emit({param : 'chatQueueCB',status : this.chatQueueCB})
+    //     }
+    //     if (pramId == "workareaCB") {
+    //       this.Compononent.workareaCB.is_active = !this.Compononent.workareaCB.is_active;
+    //       // this.toggleSideMenu.emit({param : 'workareaCB',status : this.workareaCB})
+    //     }
+    //     if (pramId == "bibleCB") {
+    //       this.Compononent.bibleCB.is_active = !this.Compononent.bibleCB.is_active;
+
+    //       // this.bibleCB = !this.bibleCB;
+    //       // this.toggleSideMenu.emit({param : 'bibleCB',status : this.bibleCB})
+    //     }
+    //     if (pramId == "WorkAreaNotesCB") {
+    //       this.Compononent.WorkAreaNotesCB.is_active = !this.Compononent.WorkAreaNotesCB.is_active;
+
+    //       // this.WorkAreaNotesCB = !this.WorkAreaNotesCB;
+    //       // this.toggleSideMenu.emit({param : 'WorkAreaNotesCB',status : this.WorkAreaNotesCB})
+    //     }
+    //     if (pramId == "strongsCB") {
+    //       this.Compononent.strongsCB.is_active = !this.Compononent.strongsCB.is_active;
+    //       // this.strongsCB = !this.strongsCB;
+    //       // this.toggleSideMenu.emit({param : 'strongsCB',status : this.strongsCB})
+    //     }
+    //     // // if (pramId == "lustdecent") {
+    //     // //   this.lustdecent = !this.lustdecent;
+    //     // // }
+    //     if (pramId == "crossReferenceCB") {
+    //       this.Compononent.crossReferenceCB.is_active = !this.Compononent.crossReferenceCB.is_active;
+    //       // this.crossReferenceCB = !this.crossReferenceCB;
+    //       // this.toggleSideMenu.emit({param : 'crossReferenceCB',status : this.crossReferenceCB})
+    //     }
+    //     if (pramId == "personalFavsCB") {
+    //       this.Compononent.personalFavsCB.is_active = !this.Compononent.personalFavsCB.is_active;
+
+    //       // this.personalFavsCB = !this.personalFavsCB;
+    //       // this.toggleSideMenu.emit({param : 'personalFavsCB',status : this.personalFavsCB})
+    //     }
+    //     if (pramId == "chatHistoryCB") {
+    //       this.Compononent.chatHistoryCB.is_active = !this.Compononent.chatHistoryCB.is_active;
+
+    //       // this.chatHistoryCB = !this.chatHistoryCB;
+    //       // this.toggleSideMenu.emit({param : 'chatHistoryCB',status : this.chatHistoryCB})
+    //     }
+    //     if (pramId == "calendarCB") {
+    //       this.Compononent.calendarCB.is_active = !this.Compononent.calendarCB.is_active;
+
+    //       // this.calendarCB = !this.calendarCB;
+    //       // this.toggleSideMenu.emit({param : 'calendarCB',status : this.calendarCB})
+    //     }
+    //     if (pramId == "pdfQuotesTabCB") {
+    //       this.Compononent.pdfQuotesTabCB.is_active = !this.Compononent.pdfQuotesTabCB.is_active;
+
+    //       // this.pdfQuotesTabCB = !this.pdfQuotesTabCB;
+    //       // this.toggleSideMenu.emit({param : 'pdfQuotesTabCB',status : this.pdfQuotesTabCB})
+    //     }
+    //     if (pramId == "barnaStatisticsCB") {
+    //       this.Compononent.barnaStatisticsCB.is_active = !this.Compononent.barnaStatisticsCB.is_active;
+
+    //       // this.barnaStatisticsCB = !this.barnaStatisticsCB;
+    //       // this.toggleSideMenu.emit({param : 'barnaStatisticsCB',status : this.barnaStatisticsCB})
+    //     }
+    //     if (pramId == "mp3TabCB") {
+    //       this.Compononent.mp3TabCB.is_active = !this.Compononent.mp3TabCB.is_active;
+
+    //       // this.mp3TabCB = !this.mp3TabCB;
+    //       // this.toggleSideMenu.emit({param : 'mp3TabCB',status : this.mp3TabCB})
+    //     }
+
+
+    //     oldcode ends
+    localStorage.setItem('chatComponent', JSON.stringify(this.Compononent));
 
   }
 
-  spliceObjectfromArray(param:any){
-  //  let objtoSlice = this.movetoLs.find((x:any)=> x.widget === param.widget);
-  //  console.log(objtoSlice)
-  //  if(objtoSlice != undefined){
-  //   const index: number = this.movetoLs.indexOf(param);
-  //   if (index !== -1) {
-  //        this.movetoLs.splice(index, 1);
-  //       // console.log(index)
-  //   }
-  //  }
-  let objtoSlice = this.Compononent.find((x:any)=> x.widget === param);
-  objtoSlice.is_active = false;
-  objtoSlice.x = 0;
-  objtoSlice.y=0;
-  localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
+  spliceObjectfromArray(param: any) {
+    //  let objtoSlice = this.movetoLs.find((x:any)=> x.widget === param.widget);
+    //  console.log(objtoSlice)
+    //  if(objtoSlice != undefined){
+    //   const index: number = this.movetoLs.indexOf(param);
+    //   if (index !== -1) {
+    //        this.movetoLs.splice(index, 1);
+    //       // console.log(index)
+    //   }
+    //  }
+    let objtoSlice = this.Compononent.find((x: any) => x.widget === param);
+    objtoSlice.is_active = false;
+    objtoSlice.x = 0;
+    objtoSlice.y = 0;
+    localStorage.setItem('chatComponent', JSON.stringify(this.Compononent));
   }
 
 
-  navigate(route:any){
+  navigate(route: any) {
     this.router.navigateByUrl(route)
 
   }
 
 
-// chatqueueInputForrefresh : number = 0;
+  // chatqueueInputForrefresh : number = 0;
 
-//   chatQueueOutput = {
-//     chatcom: (e: any) => {
-//       console.log(e)
-//       this.Compononent[0].is_active = e.status;
-//      localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     },
-//     chatQueuePath:(e:any) => {
+  //   chatQueueOutput = {
+  //     chatcom: (e: any) => {
+  //       console.log(e)
+  //       this.Compononent[0].is_active = e.status;
+  //      localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
+  //     },
+  //     chatQueuePath:(e:any) => {
 
-//       this.chatqueueInputForrefresh = e + this.chatqueueInputForrefresh;
-//       console.log(this.chatqueueInputForrefresh)
-//     }
-//   }
-//   workAreaOutput(e:any){
-//     this.Compononent[1].is_active = e;
-//      localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-//  }
-//   // workAreaOutput ={
-//   //   workAreaoutput:(e:any) => {
-//   //     this.Compononent[1].is_active = e;
-//   //     localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//   //   }
-//   // }
+  //       this.chatqueueInputForrefresh = e + this.chatqueueInputForrefresh;
+  //       console.log(this.chatqueueInputForrefresh)
+  //     }
+  //   }
+  //   workAreaOutput(e:any){
+  //     this.Compononent[1].is_active = e;
+  //      localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
+  //  }
+  //   // workAreaOutput ={
+  //   //   workAreaoutput:(e:any) => {
+  //   //     this.Compononent[1].is_active = e;
+  //   //     localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
+  //   //   }
+  //   // }
 
-//   workAreaNotesOutput = {
-//     wrokAreaNotes : (e:any) => {
-//       this.Compononent[3].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     }
-//    }
+  //   workAreaNotesOutput = {
+  //     wrokAreaNotes : (e:any) => {
+  //       this.Compononent[3].is_active = e;      
+  //       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
+  //     }
+  //    }
 
-//    addedToWorkAreainput:number=0;
+  //    addedToWorkAreainput:number=0;
 
-//    bibleOutput = {
-//     isbiblecom : (e:any) => {
-//       this.Compononent[2].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     },
-//     addedToWorkArea:(e:any) => {
-     
-//       this.addedToWorkAreainput = e + this.addedToWorkAreainput ;
-//       console.log(this.addedToWorkAreainput)
-      
-//     }
-//    }
-   
-//    strongsOutput = {
-//     thistrong : (e:any) => {
-//       this.Compononent[4].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     }
-//    }
+  //    bibleOutput = {
+  //     isbiblecom : (e:any) => {
+  //       this.Compononent[2].is_active = e;      
+  //       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
+  //     },
+  //     addedToWorkArea:(e:any) => {
 
-//    crossCompOutput = {
-//     crossComp : (e:any) => {
-//       this.Compononent[5].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     }
-//    }
+  //       this.addedToWorkAreainput = e + this.addedToWorkAreainput ;
+  //       console.log(this.addedToWorkAreainput)
 
-//    personalFavsOutput = {
-//     personalFavs : (e:any) => {
-//       this.Compononent[6].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     }
-//    }
-
-//    chatHistoryOutput = {
-//     chathistory : (e:any) => {
-//       this.Compononent[7].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     }
-//    }
-
-//    calendarOutput = {
-//     thiscalandercom : (e:any) => {
-//       this.Compononent[8].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     }
-//    }
-   
-//    mp3Output = {
-//     mp3Comp : (e:any) => {
-//       this.Compononent[9].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     },
-//     mp3ClipsOutput : (e:any) => {
-//       this.addedToWorkAreainput = e + this.addedToWorkAreainput ;
-//       console.log(this.addedToWorkAreainput)
-//     }
-//    }
-
-//   pdfOutput = {
-//     pdfComp : (e:any) => {
-//       this.Compononent[10].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     },
-//     pdfQutoesOutput:(e:any) => {
-//     console.log("pdfoutput")
-//     this.addedToWorkAreainput = e + this.addedToWorkAreainput ;
-//     }
-
-//    }
-
-//    barnaOutput = {
-//     barnaComp : (e:any) => {
-//       this.Compononent[11].is_active = e;      
-//       localStorage.setItem('chatComponent' , JSON.stringify(this.Compononent));
-//     }
-//    }
-
-chatQueueOutput = {
-  chatcom: (e: any) => {
-    console.log(e)
-    this.Compononent[0].is_active = e.status;
-   localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-  },
-
-  // chatQueuePath:(e : any) => {
-    
-  // }
-}
-
-// workAreaOutput ={
-//   workAreaoutput:(e:any) => {
-//     this.Compononent[1].is_active = e;
-//     localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-//   }
-// }
-workAreaOutput(e:any){
-   this.Compononent[1].is_active = e;
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-}
-
-workAreaNotesOutput = {
-  wrokAreaNotes : (e:any) => {
-    this.Compononent[3].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-  }
- }
+  //     }
+  //    }
 
 
- addedToWorkAreainput:number=0;
-
-
- bibleOutput = {
-  isbiblecom : (e:any) => {
-    this.Compononent[2].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-  },
-  addedToWorkArea:(e:any) => {    
-    this.addedToWorkAreainput = e + this.addedToWorkAreainput ;
-    console.log(this.addedToWorkAreainput)
-  },
-  bibleVerseOutput:(e:any) => {
-    this.Compononent[4].is_active = e;   
-  },
-  openCrossRef: (e:any) => {
-    this.Compononent[5].is_active = e
-  }
- }
  
- strongsOutput = {
-  thistrong : (e:any) => {
-    this.Compononent[4].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-  }
- }
 
- crossCompOutput = {
-  crossComp : (e:any) => {
-    this.Compononent[5].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-  },
-  addedToWorkArea:(e:any) => {    
-    this.addedToWorkAreainput = e + this.addedToWorkAreainput ;
-    console.log(this.addedToWorkAreainput)
-  },
- }
+  chatQueueOutput = {
+    chatcom: (e: any) => {
+      console.log(e)
+      this.Compononent[0].is_active = e.status;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    },
 
- personalFavsOutput = {
-  personalFavs : (e:any) => {
-    this.Compononent[6].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-  }
- }
+    // chatQueuePath:(e : any) => {
 
- chatHistoryOutput = {
-  chathistory : (e:any) => {
-    this.Compononent[7].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
+    // }
   }
- }
 
- calendarOutput = {
-  thiscalandercom : (e:any) => {
-    this.Compononent[8].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
+  
+  workAreaOutput(e: any) {
+    this.Compononent[1].is_active = e;
+    localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
   }
- }
- 
- mp3Output = {
-  mp3Comp : (e:any) => {
-    this.Compononent[9].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-  },
-  mp3ClipsOutput : (e:any) => {
-    this.addedToWorkAreainput = e + this.addedToWorkAreainput ;
-    console.log(this.addedToWorkAreainput)
-  }
- 
- }
 
-pdfOutput = {
-  pdfComp : (e:any) => {
-    this.Compononent[10].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
-  },
-  pdfQutoesOutput:(e:any) => {
-    console.log("pdfoutput")
-    this.addedToWorkAreainput = e + this.addedToWorkAreainput ;
+  workAreaNotesOutput = {
+    wrokAreaNotes: (e: any) => {
+      this.Compononent[3].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
     }
- }
-
- barnaOutput = {
-  barnaComp : (e:any) => {
-    this.Compononent[11].is_active = e;      
-    localStorage.setItem('dashBoardComponent' , JSON.stringify(this.Compononent));
   }
- }
+
+
+  addedToWorkAreainput: number = 0;
+
+
+  bibleOutput = {
+    isbiblecom: (e: any) => {
+      this.Compononent[2].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    },
+    addedToWorkArea: (e: any) => {
+      this.addedToWorkAreainput = e + this.addedToWorkAreainput;
+      console.log(this.addedToWorkAreainput)
+    },
+    bibleVerseOutput: (e: any) => {
+      this.Compononent[4].is_active = e;
+    },
+    openCrossRef: (e: any) => {
+      this.Compononent[5].is_active = e
+    }
+  }
+
+  strongsOutput = {
+    thistrong: (e: any) => {
+      this.Compononent[4].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    }
+  }
+
+  crossCompOutput = {
+    crossComp: (e: any) => {
+      this.Compononent[5].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    },
+    addedToWorkArea: (e: any) => {
+      this.addedToWorkAreainput = e + this.addedToWorkAreainput;
+      console.log(this.addedToWorkAreainput)
+    },
+  }
+
+  personalFavsOutput = {
+    personalFavs: (e: any) => {
+      this.Compononent[6].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    }
+  }
+
+  chatHistoryOutput = {
+    chathistory: (e: any) => {
+      this.Compononent[7].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    }
+  }
+
+  calendarOutput = {
+    thiscalandercom: (e: any) => {
+      this.Compononent[8].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    }
+  }
+
+  mp3Output = {
+    mp3Comp: (e: any) => {
+      this.Compononent[9].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    },
+    mp3ClipsOutput: (e: any) => {
+      this.addedToWorkAreainput = e + this.addedToWorkAreainput;
+      console.log(this.addedToWorkAreainput)
+    }
+
+  }
+
+  pdfOutput = {
+    pdfComp: (e: any) => {
+      this.Compononent[10].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    },
+    pdfQutoesOutput: (e: any) => {
+      console.log("pdfoutput")
+      this.addedToWorkAreainput = e + this.addedToWorkAreainput;
+    }
+  }
+
+  barnaOutput = {
+    barnaComp: (e: any) => {
+      this.Compononent[11].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    }
+  }
 
   //  chatoutput(e:any){
   //   this.Compononent[12].is_active = e.status;
@@ -1229,15 +810,15 @@ pdfOutput = {
 
   //  }
 
-   collapsetoggle(){
+  collapsetoggle() {
     this.iscollapsed = !this.iscollapsed
   }
 
-  changeLocation( e : Event ){
-console.log( e)
+  changeLocation(e: Event) {
+    console.log(e)
   }
 
-  toggleSidebar(){
+  toggleSidebar() {
     this.iscollapsed = !this.iscollapsed
   }
 

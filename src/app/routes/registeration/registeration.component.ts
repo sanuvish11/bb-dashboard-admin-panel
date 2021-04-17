@@ -14,7 +14,7 @@ export class RegisterationComponent implements OnInit {
 
   iscollapsed= false
   component17 = VolunteerregistrationComponent;
-  
+    
   options?: GridsterConfig;
   loaded = false;
 
