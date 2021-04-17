@@ -25,12 +25,12 @@ export class LoginComponent implements OnInit {
   }
 
 
-  autologin(){
-   let loginStatus = localStorage.getItem("login_status");
-    if(loginStatus == 'true'){
+  autologin() {
+    let loginStatus = localStorage.getItem("login_status");
+    if (loginStatus == 'true') {
       this.router.navigateByUrl('dashboard')
     }
-    else{
+    else {
       this.router.navigateByUrl('')
     };
   }
@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
         this.userlist = data;
         console.log(this.userlist)
         localStorage.setItem("role", this.userlist.roles);
-        localStorage.setItem("father_id",data.username);
-        
+        localStorage.setItem("father_id", data.username);
+
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         localStorage.setItem("adminname", data.first_name)

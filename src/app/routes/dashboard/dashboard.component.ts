@@ -65,8 +65,8 @@ export class DashboardComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 3,
-        cols: 4,
+        rows: 4,
+        cols: 6,
       },
       {
         widget: "workareaCB",
@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit {
         x: 0,
         y: 0,
         rows: 5,
-        cols: 5,
+        cols: 6,
       },
       {
         widget: "WorkAreaNotesCB",
@@ -90,7 +90,7 @@ export class DashboardComponent implements OnInit {
         x: 0,
         y: 0,
         rows: 5,
-        cols: 5,
+        cols: 6,
       },
       {
         widget: "strongsCB",
@@ -105,7 +105,7 @@ export class DashboardComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
+        rows: 3.7,
         cols: 5,
       },
       {
@@ -113,8 +113,8 @@ export class DashboardComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
-        cols: 5,
+        rows: 5.7,
+        cols: 6,
       },
       {
         widget: "chatHistoryCB",
@@ -122,15 +122,15 @@ export class DashboardComponent implements OnInit {
         x: 0,
         y: 0,
         rows: 5,
-        cols: 5,
+        cols: 7,
       },
       {
         widget: "calendarCB",
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
-        cols: 5,
+        rows: 4.6,
+        cols: 9,
       },
       {
         widget: "mp3TabCB",

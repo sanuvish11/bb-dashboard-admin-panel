@@ -7,7 +7,7 @@
     <a (click)="toggleSidebar()"
     class=" text-dark sidenav-collapse">
         <div class="nav-expand-close">
-            <span id="collapse-icon" class="fa fa-2x mr-3"></span>
+            <span id="collapse-icon" class="fa fa-angle-double-left icon-size"></span>
         </div>
     </a>
     <div class="leftmenu-scroll">
@@ -256,8 +256,8 @@
            <!-- </div> -->
            <!-- <div class="col-3 "> -->
            <gridster-item *ngIf="Compononent[9].is_active" [item]="{cols: Compononent[9].cols, rows: Compononent[9].rows, y: Compononent[9].y, x: Compononent[9].x}"
-            (mouseover)="componentPicked('mp3TabCB')" (mouseout)="pickedComponent =null" class="gridster-item-content ">
-               <ndc-dynamic  [ndcDynamicComponent]="component7 " [ndcDynamicOutputs]="mp3Output" style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;">
+            (mouseover)="componentPicked('mp3TabCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;">
+               <ndc-dynamic  [ndcDynamicComponent]="component7 " [ndcDynamicOutputs]="mp3Output" >
                </ndc-dynamic>
            </gridster-item>
            <!-- </div> -->

@@ -1,13 +1,11 @@
 <!-- <div class="grid-stack grid-stack-instance-3166" data-gs-current-height="9" style="height: 200px;"> -->
 <!-- <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" id="personal-favs-grid" data-gs-x="0" data-gs-y="0" data-gs-width="5" data-gs-height="9" data-gs-auto-position="yes" data-gs-id="personal-favs-grid"> -->
 
-<div class="row" style="margin-left: 0px !important;margin-right: 0px !important;">
-    <div class="col">
-        <div class="grid-stack-item-content ui-draggable-handle">
-
-
-            <!-- Personal Verse Favs Master Div -->
-            <div class="personal-favs-wrapper" id="personal-favs-wrapper">
+<!-- <div class="row">
+    <div class="col"> -->
+        <div class="journey-sub2-wrapper" id="journey-sub2-wrapper">
+      
+        
 
                 <!-- Personal Favs Header-->
                 <div class="personal-favs-header" (click)="toggleShow()" type="checkbox">
@@ -37,7 +35,7 @@
 
 
 
-            </div>
+            <!-- </div> -->
 
             <!-- Personal Favs Body-->
             <div class="personal-favs-body gridster-item-content" id="personal-favs" [formGroup]="personalfavFrom"
@@ -513,7 +511,7 @@
             </div>
         </div>
 
-    </div>
+    <!-- </div> -->
     <div class="col-2" *ngIf="isShowDiv">
         <!-- Personal Favs Topics -->
         <div class="personal-favs-topics" style="position: initial !important;margin-left:-30px" *ngIf="!isShownbox">
@@ -527,7 +525,7 @@
             </div>
         </div>
     </div>
-</div>
+<!-- </div> -->
 
 <!-- </div> -->
 <!-- <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: none;"></div></div></div> -->

@@ -82,6 +82,7 @@ export class BibleComponent implements OnInit {
   father_id: any;
   meaning: any;
   favid: any;
+  ArrowHideShow: boolean = false;
   constructor(private apiService: AuthService) {
     this.counter = 0;
   }
@@ -94,7 +95,7 @@ export class BibleComponent implements OnInit {
     this.isbiblecom.emit(false);
   }
   toggleTestament(tab: number) {
-    this.SearchHeader= false
+    this.SearchHeader = false
     this.oldTestament = true
     this.showBible = true;
     this.searchQuery = ""
@@ -252,7 +253,7 @@ export class BibleComponent implements OnInit {
     console.log(verse)
     const versetring = JSON.stringify(verse)
     const verseSplit = versetring.substr(versetring.lastIndexOf(".") + 1);
-    var str = verseSplit.replace('"' , '');
+    var str = verseSplit.replace('"', '');
     console.log(str)
     console.log(verseSplit)
     const body = {
@@ -339,8 +340,13 @@ export class BibleComponent implements OnInit {
     this.SearchRecordLimit = this.SearchRecordLimit + this.pageCountSchema
     // console.log(this.searchQuery + " " + this.version);
     this.apiService.fetchBibleData(this.searchQuery, this.version, this.pageCountSchema, this.SearchRecordLimit).subscribe((message) => {
-      console.log(message);
+
+
+
       this.searchResults = message.json.results;
+      console.log(this.searchResults)
+
+      console.log(this.ArrowHideShow);
       this.preResult = message.jsonresponse;
       this.strongsList = message.strongs;
       this.versesList = message.verses;
@@ -355,6 +361,7 @@ export class BibleComponent implements OnInit {
         i++;
       });
       console.log(this.optResults)
+     
 
       localStorage.removeItem("code")
 
@@ -406,6 +413,10 @@ export class BibleComponent implements OnInit {
     this.apiService.getBible(this.SelectedTestament, this.version, this.book, this.chapter, RecordLimit).subscribe((message) => {
       this.BibleVerses = message;
       console.log(message)
+      if (  this.BibleVerses.length != 0) {
+        this.ArrowHideShow = true;
+
+      }
       console.log(this.BibleVerses);
       this.hideVerses = false;
       this.hideSearch = true;
@@ -459,7 +470,7 @@ export class BibleComponent implements OnInit {
         this.showAlert(msg, '#87dc34')
         // this.apiService.workarealist(this.father_id)
         // this.addedToWorkArea.emit(1)
-        this.apiService.AddtoworkAreaBibleVerse.next({body})
+        this.apiService.AddtoworkAreaBibleVerse.next({ body })
 
       }
     })

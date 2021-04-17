@@ -8,6 +8,10 @@
 @import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-angular-calendars/styles/material.css';
 
+.icon-size{
+    font-size: 20px;
+}
+
 /* .e-btn.e-flat.e-primary,
 .e-css.e-btn.e-flat.e-primary {
 background-color: transparent;

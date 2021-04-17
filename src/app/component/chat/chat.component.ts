@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ViewChild } from '@angular/core';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { GridsterItem, GridsterItemComponentInterface, GridType } from 'angular-gridster2';
 import { Callbacks } from 'jquery';
 import { observable } from 'rxjs';
@@ -19,6 +20,7 @@ import { PositionsService } from 'src/app/service/positions.service';
 export class ChatComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer!: ElementRef;
   ischatpanel = true;
+  isClose = true;
   chatRoomDetail: any;
   chatOverView: any;
   chatMessageCounter = 0
@@ -121,6 +123,8 @@ export class ChatComponent implements OnInit {
         localStorage.removeItem("roomId");
       }
     }
+    this.isClose = false;
+    this.router.navigateByUrl('/dashboard');
     this.chatService.viewOthersChat = false;
     this.thischat.emit({ status: false, isclose: 1 });
   }
@@ -161,7 +165,7 @@ export class ChatComponent implements OnInit {
   status: any;
   Father_Id: any
     ;
-  constructor(private datePipe: DatePipe ,private chatService: ChatService, private posServ: PositionsService, private http: HttpClient, private authservice: AuthService) {
+  constructor(private router:Router,private datePipe: DatePipe, private chatService: ChatService, private posServ: PositionsService, private http: HttpClient, private authservice: AuthService) {
 
     this.getChatbehavior()
 
@@ -175,9 +179,9 @@ export class ChatComponent implements OnInit {
     }, 1);
   }
 
-  getChatbehavior(){
-    this.authservice.chatQueueSub.subscribe(data=>{
-     this.ngOnInit()
+  getChatbehavior() {
+    this.authservice.chatQueueSub.subscribe(data => {
+      this.ngOnInit()
     })
   }
 
@@ -319,7 +323,7 @@ export class ChatComponent implements OnInit {
     //  }
     //  else{
     if (closestatus == true) {
-  
+
       const body = {
         ROOM_ID: this.room,
         CHAT_STATUS: 2,
@@ -327,7 +331,7 @@ export class ChatComponent implements OnInit {
         IS_FLAG: this.Is_flagged,
         CHAT_OVERVIEW: this.chatOverView,
         FLAG_COMMENT: this.flag_Comment,
-        LAST_MESSAGE_TIME:this.datePipe.transform(new Date(),"hh:mm:ss a")
+        LAST_MESSAGE_TIME: this.datePipe.transform(new Date(), "hh:mm:ss a")
       }
       // let status: any;
       this.authservice.closechat(body).subscribe(data => {
@@ -478,13 +482,13 @@ export class ChatComponent implements OnInit {
         }
       })
   }
-  ngAfterViewChecked() {        
-    this.scrollToBottom();        
-}
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
 
   scrollToBottom(): void {
     try {
-        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) { }                 
-}
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    } catch (err) { }
+  }
 }

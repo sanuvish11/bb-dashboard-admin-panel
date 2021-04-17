@@ -186,8 +186,8 @@ export class ChatRouteComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 3,
-        cols: 4,
+        rows: 4,
+        cols: 6,
       },
       {
         widget: "workareaCB",
@@ -203,7 +203,7 @@ export class ChatRouteComponent implements OnInit {
         x: 0,
         y: 0,
         rows: 5,
-        cols: 5,
+        cols: 6,
       },
       {
         widget: "WorkAreaNotesCB",
@@ -226,7 +226,7 @@ export class ChatRouteComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
+        rows: 3.7,
         cols: 5,
       },
       {
@@ -234,8 +234,8 @@ export class ChatRouteComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
-        cols: 5,
+        rows: 6.5,
+        cols: 7,
       },
       {
         widget: "chatHistoryCB",
@@ -243,15 +243,15 @@ export class ChatRouteComponent implements OnInit {
         x: 0,
         y: 0,
         rows: 5,
-        cols: 5,
+        cols: 7,
       },
       {
         widget: "calendarCB",
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
-        cols: 5,
+        rows: 4.6,
+        cols: 9,
       },
       {
         widget: "mp3TabCB",
@@ -274,7 +274,7 @@ export class ChatRouteComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
+        rows: 3,
         cols: 5,
       },
       {
@@ -282,8 +282,8 @@ export class ChatRouteComponent implements OnInit {
         is_active: true,
         x: 0,
         y: 0,
-        rows: 3,
-        cols: 4,
+        rows: 5,
+        cols: 7,
       }
       ]
 
@@ -797,12 +797,19 @@ export class ChatRouteComponent implements OnInit {
     }
   }
 
-  barnaOutput = {
+  barnastaticsthis = {
     barnaComp: (e: any) => {
       this.Compononent[11].is_active = e;
       localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
     }
   }
+
+  // barnaOutput = {
+  //   barnaComp: (e: any) => {
+  //     this.Compononent[11].is_active = e;
+  //     localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+  //   }
+  // }
 
   //  chatoutput(e:any){
   //   this.Compononent[12].is_active = e.status;

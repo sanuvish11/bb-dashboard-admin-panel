@@ -1,4 +1,4 @@
-    <div class="d-flex"> 
+    <div class="d-flex" style="overflow-x: hidden;"> 
          <div [ngClass]="iscollapsed?'w50 ':'w190'" style="position: relative;"> 
             <!-- <app-side-menu (toggleSideMenu)="toggleSideMenuFunction($event)"></app-side-menu> -->
 
@@ -7,7 +7,7 @@
                      <a (click)="toggleSidebar()"
     class=" text-dark sidenav-collapse">
         <div class="nav-expand-close">
-            <span id="collapse-icon" class="fa fa-2x mr-3"></span>
+            <span id="collapse-icon" class="fa fa-angle-double-left icon-size"></span>
         </div>
     </a>
             <div class="leftmenu-scroll">
@@ -16,7 +16,7 @@
 
                 <button type="input" class="accordion" (click)="toggleAccordian($event, i)">
                     <img src="/assets/dist/img/icons/sidebar-icons/panel-navigation-icon.png" style="margin-right: 10px;">
-                    <span id="collapse-text" class="menu-collapsed">Navigation Panel <i class="fa fa-chevron-down"></i> </span>
+                    <span id="collapse-text" class="menu-collapsed">Navigation Panel <i class="fa fa-chevron-down"></i>  </span>
                 </button>
                 <div class="panel" *ngIf="!item.isActive" id="menu-collepse">
                     <ul>
@@ -260,28 +260,24 @@
                 <!-- </div> -->
 
                 <!-- <div class="col-3 "> -->
-                <gridster-item *ngIf="Compononent[8].is_active" [item]="{cols: Compononent[8].cols, rows: Compononent[8].rows, y: Compononent[8].y, x: Compononent[8].x}" 
-                (mouseover)="componentPicked('calendarCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsecalendar ? 'chatcomponentclosed':'chatcomponentexpanded'">
+                <gridster-item *ngIf="Compononent[8].is_active" [item]="{cols: Compononent[8].cols, rows: Compononent[8].rows, y: Compononent[8].y, x: Compononent[8].x}"  (mouseover)="componentPicked('calendarCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsecalendar ? 'chatcomponentclosed':'chatcomponentexpanded'">
                     <ndc-dynamic [ndcDynamicComponent]="component11 " [ndcDynamicOutputs]="calendarOutput"></ndc-dynamic>
                 </gridster-item>
                 <!-- </div> -->
                 <!-- <div class="col-3 "> -->
-                <gridster-item *ngIf="Compononent[9].is_active" [item]="{cols: Compononent[9].cols, rows: Compononent[9].rows, y: Compononent[9].y, x: Compononent[9].x}"
-                 (mouseover)="componentPicked('mp3TabCB')" (mouseout)="pickedComponent =null" class="gridster-item-content ">
-                    <ndc-dynamic  [ndcDynamicComponent]="component7 " [ndcDynamicOutputs]="mp3Output" style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;">
+                <gridster-item *ngIf="Compononent[9].is_active" [item]="{cols: Compononent[9].cols, rows: Compononent[9].rows, y: Compononent[9].y, x: Compononent[9].x}"(mouseover)="componentPicked('mp3TabCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsecalendar ? 'chatcomponentclosed':'chatcomponentexpanded'">
+                    <ndc-dynamic  [ndcDynamicComponent]="component7 " [ndcDynamicOutputs]="mp3Output" >
                     </ndc-dynamic>
                 </gridster-item>
                 <!-- </div> -->
                 <!-- <div class="col-3 "> -->
-                <gridster-item *ngIf="Compononent[10].is_active" [item]="{cols: Compononent[10].cols, rows: Compononent[10].rows, y: Compononent[10].y, x: Compononent[10].x}" 
-               (mouseover)="componentPicked('pdfQuotesTabCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsepdfquotes ? 'chatcomponentclosed':'chatcomponentexpanded'">
+                <gridster-item *ngIf="Compononent[10].is_active" [item]="{cols: Compononent[10].cols, rows: Compononent[10].rows, y: Compononent[10].y, x: Compononent[10].x}" (mouseover)="componentPicked('pdfQuotesTabCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsepdfquotes ? 'chatcomponentclosed':'chatcomponentexpanded'">
                     <ndc-dynamic [ndcDynamicComponent]="component12 " [ndcDynamicOutputs]="pdfOutput">
                     </ndc-dynamic>
                 </gridster-item>
                 <!-- </div> -->
                 <!-- <div class="col-3 "> -->
-                <gridster-item *ngIf="Compononent[6].is_active" [item]="{cols: Compononent[6].cols, rows: Compononent[6].rows, y: Compononent[6].y, x: Compononent[6].x}"
-                  (mouseover)="componentPicked('personalFavsCB')" (mouseout)="pickedComponent =null" class="gridster-item-content "  [ngClass]="collapsepersonalfavs ? 'chatcomponentclosed':'chatcomponentexpanded'">
+                <gridster-item *ngIf="Compononent[6].is_active" [item]="{cols: Compononent[6].cols, rows: Compononent[6].rows, y: Compononent[6].y, x: Compononent[6].x}"(mouseover)="componentPicked('personalFavsCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;"  [ngClass]="collapsepersonalfavs ? 'chatcomponentclosed':'chatcomponentexpanded'">
                     <ndc-dynamic [ndcDynamicOutputs]="personalFavsOutput" [ndcDynamicComponent]="component13 ">
                     </ndc-dynamic>
                 </gridster-item>
