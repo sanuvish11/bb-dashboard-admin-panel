@@ -97,35 +97,37 @@
                                     </div>
                                 </div>
                             </div>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <th>User ID</th>
-                                        <th>Admin ID</th>
-                                        <th>Duration</th>
-                                        <th>Started At:</th>
-                                        <th>Last Message At:</th>
-                                        <th>Status</th>
-                                        <th>Time Zone</th>
-                                    </tr>
-                                    <tr *ngFor="let room of allChatRooms; let i = index" (click)="getchat(room)">
-                                        <td *ngIf="room.IS_FLAG == 1" class="light"><img
-                                                src="/assets/dist/img/icons/flagged-color.png">{{room.USER_NAME}}</td>
-                                        <td *ngIf="room.IS_FLAG == 0" class="light">{{room.USER_NAME}}</td>
-
-                                        <td>{{room.PASTOR_ID}}</td>
-                                        <td class="dark">222 </td>
-                                        <td class="dark">{{room.createdAt | date: 'dd/MM/yyyy mm ss'}}</td>
-                                        <td class="dark">{{room.updatedAt | date: 'dd/MM/yyyy mm ss'}}</td>
-                                        <td *ngIf="room.CHAT_STATUS == 0" class="light">In Queue</td>
-                                        <td *ngIf="room.CHAT_STATUS == 1" class="light">Live</td>
-                                        <td *ngIf="room.CHAT_STATUS == 2" class="light">Closed</td>
-
-                                        <td class="light">CST</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                            <div style="height: 200px; overflow-y: scroll;">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>User ID</th>
+                                            <th>Admin ID</th>
+                                            <th>Duration</th>
+                                            <th>Started At:</th>
+                                            <th>Last Message At:</th>
+                                            <th>Status</th>
+                                            <th>Time Zone</th>
+                                        </tr>
+                                        <tr *ngFor="let room of allChatRooms; let i = index" (click)="getchat(room)">
+                                            <td *ngIf="room.IS_FLAG == 1" class="light"><img
+                                                    src="/assets/dist/img/icons/flagged-color.png">{{room.USER_NAME}}</td>
+                                            <td *ngIf="room.IS_FLAG == 0" class="light">{{room.USER_NAME}}</td>
+    
+                                            <td>{{room.PASTOR_ID}}</td>
+                                            <td class="dark">222 </td>
+                                            <td class="dark">{{room.createdAt | date: 'dd/MM/yyyy mm ss'}}</td>
+                                            <td class="dark">{{room.updatedAt | date: 'dd/MM/yyyy mm ss'}}</td>
+                                            <td *ngIf="room.CHAT_STATUS == 0" class="light">In Queue</td>
+                                            <td *ngIf="room.CHAT_STATUS == 1" class="light">Live</td>
+                                            <td *ngIf="room.CHAT_STATUS == 2" class="light">Closed</td>
+    
+                                            <td class="light">CST</td>
+                                        </tr>
+    
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
