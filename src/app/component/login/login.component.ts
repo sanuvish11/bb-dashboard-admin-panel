@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form).subscribe(
       data => {
         // this.tokenStorage.setLoginStatus(true);
+        this.authService.headerFlag(true);
         localStorage.setItem("login_status", "true");
         this.userlist = data;
         console.log(this.userlist)

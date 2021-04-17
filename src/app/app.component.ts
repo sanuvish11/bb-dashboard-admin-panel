@@ -20,22 +20,30 @@ export class AppComponent implements OnInit {
     this.adminname1 = localStorage.getItem("adminname");
   }
 
-  constructor(private router: Router, private tokenService: TokenStorageService) {
+  constructor(private router: Router, private authService:AuthService,private tokenService: TokenStorageService) {
     setInterval(() => {
       this.timeNow = new Date();
     }, 1);
-    this.getheader();
+    this.authService.headerDisplay.subscribe(message => {
+      this.showHeader = message;
+    });
   }
   getheader() {
     let volunteerId = localStorage.getItem('father_id');
     if (volunteerId != null || volunteerId != undefined) {
       this.showHeader = true;
     }
+   
   }
-  // logout() {
-  //   this.router.navigateByUrl('/');
-  //   this.tokenService.signOut();
-  // }
+  
+  logout() {
+    
+ 
+
+    this.tokenService.signOut();
+    this.authService.headerFlag(false);
+    this.router.navigateByUrl('/');
+  }
 
   @Input() Opencalendar: any
   openCaledar() {

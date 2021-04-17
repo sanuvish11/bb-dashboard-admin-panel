@@ -23,7 +23,12 @@ export class AuthService {
   SelectedPesonalFavData: any;
   father = localStorage.getItem("name")
   constructor(private http: HttpClient) { }
-
+  private headerSource = new BehaviorSubject(false);
+  headerDisplay = this.headerSource.asObservable();
+  
+  headerFlag(message: boolean) {
+    this.headerSource.next(message);
+  }
   login(credentials: any): Observable<any> {
     return this.http.post(AUTH_API + 'signin', {
       username: credentials.username,
