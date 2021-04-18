@@ -2252,7 +2252,7 @@ body nav ul li {
 }
 
 .chat-queue {
-    border-top: 1px solid #78500c;
+    /* border-top: 1px solid #78500c; */
     padding: 0 10px;
     height: calc(100% - 47px);
     overflow: auto;

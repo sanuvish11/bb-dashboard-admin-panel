@@ -163,8 +163,8 @@ export class DashboardComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
-        cols: 5,
+        rows: 7,
+        cols: 10,
       },
       ]
 
@@ -477,6 +477,13 @@ export class DashboardComponent implements OnInit {
       localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
     }
   }
+  userlistthis = {
+    userListComp: (e: any) => {
+      this.Compononent[12].is_active = e;
+      localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
+    }
+  }
+
 
   collapsetoggle() {
     this.iscollapsed = !this.iscollapsed

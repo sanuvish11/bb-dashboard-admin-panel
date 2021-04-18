@@ -5,6 +5,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@ang
 import { Router } from '@angular/router';
 import { GridsterItem, GridsterItemComponentInterface, GridType } from 'angular-gridster2';
 import { Callbacks } from 'jquery';
+import * as moment from 'moment';
 import { observable } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { ChatService } from 'src/app/service/chat.service';
@@ -165,7 +166,7 @@ export class ChatComponent implements OnInit {
   status: any;
   Father_Id: any
     ;
-  constructor(private router:Router,private datePipe: DatePipe, private chatService: ChatService, private posServ: PositionsService, private http: HttpClient, private authservice: AuthService) {
+  constructor(private router: Router, private datePipe: DatePipe, private chatService: ChatService, private posServ: PositionsService, private http: HttpClient, private authservice: AuthService) {
 
     this.getChatbehavior()
 
@@ -204,9 +205,9 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage() {
-    const date = new Date().toISOString().
-      replace(/T/, '').
-      replace(/\..+/, '');
+    const date = new Date();
+      // replace(/T/, '').
+      // replace(/\..+/, '');
 
     this.chatService.sendMessage({ sender: this.name, msg: this.newMessage, time: date, sender_id: 1, room: this.room, status: 0 });
     this.newMessage = '';
@@ -233,6 +234,9 @@ export class ChatComponent implements OnInit {
         console.log(message);
         //mycode
         this.time = message.data.time
+        let momentVariable = moment(message.data.time, 'MM-DD-YYYY');
+        let stringvalue = momentVariable.format('YYYY-MM-DD');
+        console.log(stringvalue)
         // ends
         console.log(this.time)
         this.messageList.push(message);

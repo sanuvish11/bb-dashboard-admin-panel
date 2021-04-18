@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CompactType, GridsterConfig } from 'angular-gridster2';
-import { AuthService } from 'src/app/service/auth.service';
 import { PositionsService } from 'src/app/service/positions.service';
 
 @Component({
@@ -14,30 +13,8 @@ export class JourneyrouteComponent implements OnInit {
   iscollapsed= false;  
   options?: GridsterConfig;
   loaded = false;
-  mp3PdfEtcFlag = false;
-  lustDeceitCoverFlag = false
 
-  componets = [
-    {
-      titie:'lust-deceit-cover',
-      option : {
-        cols:2, rows: 2, y: 0, x: 4
-      }
-    },
-    {
-      titie:'mp3pdfetc',
-      option : {cols:2, rows: 2, y: 0, x: 2}
-    }
-  ]
-
-  constructor(private router : Router,
-    private positionServc: PositionsService,
-    private auth : AuthService ) {
-    this.auth.pdfDisplay.subscribe(message => {
-      this.mp3PdfEtcFlag = message;
-      this.lustDeceitCoverFlag = message;
-    });
-   }
+  constructor(private router : Router,private positionServc: PositionsService ) { }
 
   ngOnInit(): void {
     this.gridsterInit();
@@ -49,7 +26,7 @@ export class JourneyrouteComponent implements OnInit {
 
   gridsterInit(){
     this.options = {
-      fixedRowHeight: 200,
+      fixedRowHeight: 120,
       gridType: 'fixed',
       compactType: CompactType.None,
       margin: 1,
@@ -62,7 +39,7 @@ export class JourneyrouteComponent implements OnInit {
       minCols: 3,
       maxCols: 90,
       maxItemCols: 100,
-      fixedColWidth: 150,
+      fixedColWidth: 100,
       enableEmptyCellClick: false,
       minItemCols: 1,
       defaultItemCols: 1,
@@ -94,15 +71,6 @@ export class JourneyrouteComponent implements OnInit {
     })
     // this.getPositionsFromLS();
   }
-  
-  
-  onThislustdecit(flag: any){
-    this.lustDeceitCoverFlag = flag;
-  }
-  onThismp3pdfetc(flag: any){
-    this.mp3PdfEtcFlag = flag;
-  }
-
   toggleSidebar(){
     this.iscollapsed = !this.iscollapsed
   }

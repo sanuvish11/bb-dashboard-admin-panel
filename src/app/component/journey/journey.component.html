@@ -29,7 +29,7 @@
                         <span id="jb-header-text">{{SelectedJourneyName}}</span>
                         <span>
                             <img id="jb-header-trash" 
-                                href="javascript:void(0)" (click)="deleteJourney()" src="/assets/dist/img/icons/trash-icon.png">
+                                href="javascript:void(0)" src="/assets/dist/img/icons/trash-icon.png">
                         </span>
                     </div>
 
@@ -80,9 +80,9 @@
                             <tr *ngFor="let journey of savedJourneysList; let i = index" (click)="getJourneyname(journey)">
                                 <td id="jb-td-1" style="text-align: left; height: 30px; padding-left: 10px; font: 500 12px 'Montserrat Regular'" >
                                     {{journey.JOUNEY_NAME}}</td>
-                                <td>{{AllJournetDataArray[i]?.scriptures}}</td>
-                                <td>{{AllJournetDataArray[i]?.mp3}}</td>
-                                <td>{{AllJournetDataArray[i]?.pdf}}</td>
+                                <td>{{AllJournetDataArray[i].scriptures}}</td>
+                                <td>{{AllJournetDataArray[i].mp3}}</td>
+                                <td>{{AllJournetDataArray[i].pdf}}</td>
                             </tr>
 
                             <!-- row 2 -->

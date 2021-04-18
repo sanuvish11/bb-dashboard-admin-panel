@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 import { MustMatch } from 'src/app/service/mastmatch';
 
@@ -28,19 +28,43 @@ export class VolunteerregistrationComponent implements OnInit {
   date: any
   year: any
   selectedFeatures: any = [];
-  constructor(private authService: AuthService, private formBuilder: FormBuilder) {
-  }
+  volnteerForm: FormGroup;
+  selectedCounty: any;
+  country_id: any;
+  stateList: any;
+  citylist: any;
+  state_id: any;
 
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
+  message: any;
+
+  constructor(private authService: AuthService, private formBuilder: FormBuilder) {
+    this.volnteerForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      middle_name: [''],
+      gender: ['', Validators.required],
+      email: ['', Validators.required],
+      country: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required],
+      year: ['', Validators.required],
+      time_zone: ['', Validators.required],
+      church_name: ['', Validators.required],
+      paster_name: ['', Validators.required],
+      phone_no: ['', Validators.required],
+      church_state: ['', Validators.required],
+      church_city: ['', Validators.required],
       confirmPassword: ['', Validators.required]
-  }, {
+    }, {
       validator: MustMatch('password', 'confirmPassword')
-  });
+    });
+  }
+
+
+  ngOnInit() {
+
 
     this.authService.getcountry().subscribe(
       data => {
@@ -54,23 +78,15 @@ export class VolunteerregistrationComponent implements OnInit {
   }
 
 
+  get f() {
+    return this.volnteerForm.controls;
+  }
 
-  selectedCounty: any;
-  country_id: any;
-  stateList: any;
-  citylist: any;
-  state_id: any;
-  password1: any
-  password2: any;
-
-
-
-  seletcountry(id: any) {
-    this.submitted = true;
-    //  let singleChatData = this.UserRoomList.find((x: { id: any; }) => x.id === id)
-    console.log(id)
-    this.form.country_id = id;
-    this.authService.getstate(this.form).subscribe(
+  seletcountry() {
+    console.log(this.volnteerForm.value.country)
+    this.authService.getstate({
+      country_id: this.volnteerForm.value.country
+    }).subscribe(
       data => {
         this.stateList = data
         console.log(data);
@@ -84,8 +100,8 @@ export class VolunteerregistrationComponent implements OnInit {
   selectstate(id: any) {
     console.log(id)
     //  let singleChatData = this.UserRoomList.find((x: { id: any; }) => x.id === id)
-    console.log(id)
-    this.form.state_id = id;
+    console.log(this.volnteerForm.value.country)
+    this.form.state_id = this.volnteerForm.value.country;
     this.authService.getcity(this.form).subscribe(
       data => {
         this.citylist = data
@@ -97,43 +113,74 @@ export class VolunteerregistrationComponent implements OnInit {
       });
   }
 
-
-
-  // confirmPassword() {
-  //   this.password1 = this.form.password.value;
-  //   this.password2 = this.form.password2.value;
-  //   if (this.password1 == '')
-  //     alert("Please enter Password");
-  //   else if (this.password2 == '')
-  //     alert("Please enter confirm password");
-  //   else if (this.password1 != this.password2) {
-  //     alert("\nPassword did not match: Please try again...")
-  //     return false;
-  //   }
-  //   else {
-  //     alert("Password Match: Welcome to GeeksforGeeks!")
-  //     return true;
-  //   }
-    // } 
-    // if (this.form.password != this.form.confirmPassword) {
-    //   this.form.success = false;
-    //   this.form.show = true;
-    //   this.form.message = 'Password does not match with confirm password';
-    // } else {
-    //   this.form.success = true;
-    //   this.form.show = false;
-    //   this.form.message = '';
-    // }
- // }
-
-
-  get f() { return this.registerForm.controls; }
-  onSubmit() {
-    this.authService.register(this.form).subscribe(
+  churchCity() {
+    this.form.state_id = this.volnteerForm.value.country;
+    this.authService.getcity(this.form).subscribe(
       data => {
+        this.citylist = data
         console.log(data);
-        // this.isSuccessful = true;
-        // this.isSignUpFailed = false;
+        console.log(this.citylist);
+      },
+      err => {
+
+      });
+  }
+  onSubmit() {
+    this.submitted = true;
+    console.log(this.volnteerForm);
+    if (this.volnteerForm.invalid) {
+      return;
+    }
+    if (this.volnteerForm.valid) {
+      console.table(this.volnteerForm.value);
+    }
+    const body = {
+      username: this.volnteerForm.value.username,
+      password: this.volnteerForm.value.password,
+      confirmPassword: this.volnteerForm.value.confirmPassword,
+      first_name: this.volnteerForm.value.first_name,
+      last_name: this.volnteerForm.value.last_name,
+      middle_name: this.volnteerForm.value.middle_name,
+      gender: this.volnteerForm.value.gender,
+      email: this.volnteerForm.value.email,
+      country: this.volnteerForm.value.country,
+      state: this.volnteerForm.value.state,
+      city: this.volnteerForm.value.city,
+      yob: this.volnteerForm.value.year,
+      time_zone: this.volnteerForm.value.time_zone,
+      church_name: this.volnteerForm.value.church_name,
+      paster_name: this.volnteerForm.value.paster_name,
+      phone_no: this.volnteerForm.value.phone_no,
+      church_state: this.volnteerForm.value.church_state,
+      church_city: this.volnteerForm.value.church_city,
+    }
+    console.table(body)
+    this.authService.register(body).subscribe(data => {
+      console.log(data)
+        if (data.length != 0) {
+          this.message = "User have been successfully registered"
+        }
+        this.volnteerForm.reset();
+        // this.volnteerForm.patchValue({
+        //   username: "",
+        //   password: "",
+        //   confirmPassword: "",
+        //   first_name: +"",
+        //   last_name: +"",
+        //   middle_name: +"",
+        //   gender: +"",
+        //   email: +"",
+        //   country: +"",
+        //   state: +"",
+        //   city: +"",
+        //   yob: +"",
+        //   time_zone: +"",
+        //   church_name: +"",
+        //   paster_name: +"",
+        //   phone_no: +"",
+        //   church_state: +"",
+        //   church_city: +"",
+       // });
       },
       err => {
         this.errorMessage = err.error.message;
@@ -159,99 +206,6 @@ export class VolunteerregistrationComponent implements OnInit {
   }
 
   years: any = [
-    {
-      "year": 1920
-    },
-    {
-      "year": 1921
-    },
-    {
-      "year": 1922
-    },
-    {
-      "year": 1923
-    },
-    {
-      "year": 1924
-    },
-    {
-      "year": 1925
-    },
-    {
-      "year": 1926
-    },
-    {
-      "year": 1927
-    },
-    {
-      "year": 1928
-    },
-    {
-      "year": 1929
-    },
-    {
-      "year": 1930
-    },
-    {
-      "year": 1931
-    },
-    {
-      "year": 1932
-    },
-    {
-      "year": 1933
-    },
-    {
-      "year": 1934
-    },
-    {
-      "year": 1935
-    },
-    {
-      "year": 1936
-    },
-    {
-      "year": 1937
-    },
-    {
-      "year": 1938
-    },
-    {
-      "year": 1939
-    },
-    {
-      "year": 1940
-    },
-    {
-      "year": 1941
-    },
-    {
-      "year": 1942
-    },
-    {
-      "year": 1943
-    },
-    {
-      "year": 1944
-    },
-    {
-      "year": 1945
-    },
-    {
-      "year": 1946
-    },
-    {
-      "year": 1947
-    },
-    {
-      "year": 1948
-    },
-    {
-      "year": 1949
-    },
-    {
-      "year": 1950
-    },
     {
       "year": 1951
     },
@@ -402,66 +356,22 @@ export class VolunteerregistrationComponent implements OnInit {
     {
       "year": 2000
     },
-    // {
-    //   "year": 2001
-    // },
-    // {
-    //   "year": 2002
-    // },
-    // {
-    //   "year": 2003
-    // },
-    // {
-    //   "year": 2004
-    // },
-    // {
-    //   "year": 2005
-    // },
-    // {
-    //   "year": 2006
-    // },
-    // {
-    //   "year": 2007
-    // },
-    // {
-    //   "year": 2008
-    // },
-    // {
-    //   "year": 2009
-    // },
-    // {
-    //   "year": 2010
-    // },
-    // {
-    //   "year": 2011
-    // },
-    // {
-    //   "year": 2012
-    // },
-    // {
-    //   "year": 2013
-    // },
-    // {
-    //   "year": 2014
-    // },
-    // {
-    //   "year": 2015
-    // },
-    // {
-    //   "year": 2016
-    // },
-    // {
-    //   "year": 2017
-    // },
-    // {
-    //   "year": 2018
-    // },
-    // {
-    //   "year": 2019
-    // },
-    // {
-    //   "year": 2020
-    // }
+    {
+      "year": 2001
+    },
+    {
+      "year": 2002
+    },
+    {
+      "year": 2003
+    },
+    {
+      "year": 2004
+    },
+    {
+      "year": 2005
+    },
+   
   ];
 
 

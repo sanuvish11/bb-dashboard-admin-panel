@@ -18,33 +18,17 @@ export class AuthService {
   SelectedJourneyItems: BehaviorSubject<any> = new BehaviorSubject({});
   SelectedStrong: BehaviorSubject<any> = new BehaviorSubject('');
   SelectedCrossRefData: BehaviorSubject<any> = new BehaviorSubject({});
-  chatQueueSub : BehaviorSubject<any> = new BehaviorSubject('');
-  AddtoworkAreaBibleVerse : BehaviorSubject<any> = new BehaviorSubject('');
+  chatQueueSub: BehaviorSubject<any> = new BehaviorSubject('');
+  AddtoworkAreaBibleVerse: BehaviorSubject<any> = new BehaviorSubject('');
   SelectedPesonalFavData: any;
   father = localStorage.getItem("name")
   constructor(private http: HttpClient) { }
-
   private headerSource = new BehaviorSubject(true);
   headerDisplay = this.headerSource.asObservable();
-  
+
   headerFlag(message: boolean) {
     this.headerSource.next(message);
   }
-
-  private pdfSource = new BehaviorSubject(false);
-  pdfDisplay = this.pdfSource.asObservable();
-  
-  pdfFlag(message: boolean) {
-    this.pdfSource.next(message);
-  }
-
-  private journeyDataSource = new BehaviorSubject(false);
-  journeyDataDisplay = this.journeyDataSource.asObservable();
-  
-  journeyDataFlag(message: boolean) {
-    this.pdfSource.next(message);
-  }
-  
   login(credentials: any): Observable<any> {
     return this.http.post(AUTH_API + 'signin', {
       username: credentials.username,
@@ -53,27 +37,7 @@ export class AuthService {
   }
 
   register(user: any): Observable<any> {
-    return this.http.post(AUTH_API + 'signup', {
-      username: user.username,
-      email: user.email,
-      password: user.password,
-      first_name: user.first_name,
-      middle_name: user.middle_name,
-      phone_no: user.phone_no,
-      last_name: user.last_name,
-      gender: user.gender,
-      city: user.city,
-      state: user.state,
-      yob: user.yob,
-      time_zone: user.time_zone,
-      church_name: user.church_name,
-      paster_name: user.paster_name,
-      church_city: user.church_city,
-      church_state: user.church_state,
-      created_by: user.created_by,
-      modify_by: user.modify_by,
-
-    }, httpOptions);
+    return this.http.post(AUTH_API + 'signup', user, httpOptions);
 
   }
 
@@ -83,9 +47,7 @@ export class AuthService {
     }, httpOptions)
   }
   getstate(state: any): Observable<any> {
-    return this.http.post(AUTH_API + 'getstate', {
-      country_id: state.country_id,
-    }, httpOptions)
+    return this.http.post(AUTH_API + 'getstate', state, httpOptions)
   }
   getcity(user: any): Observable<any> {
     return this.http.post(AUTH_API + 'getcity', {

@@ -74,7 +74,7 @@ export class RegisterationComponent implements OnInit {
      this.loaded = true
     })
     // this.getPositionsFromLS();
-  }
+  } 
 
   collapsetoggle(){
     this.iscollapsed = !this.iscollapsed

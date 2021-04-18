@@ -62,6 +62,8 @@ import { CarouselDirective } from './component/navigation-panel/personal-favs/ca
 import { environment } from 'src/environments/environment';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserListComponent } from './component/user-list/user-list.component';
+import { ReversePipe } from './component/volunteerregistration/reverse.pipe';
+import { UserlistComponent } from './routes/userlist/userlist.component';
 
 const config: SocketIoConfig = { url: environment.SocketUrl, options: {} };
 
@@ -113,7 +115,11 @@ const config: SocketIoConfig = { url: environment.SocketUrl, options: {} };
 
     HighlightPipe,
 
-    UserListComponent
+    UserListComponent,
+
+    ReversePipe,
+
+    UserlistComponent
 
   ],
   imports: [CKEditorModule, AngularEditorModule, CommonModule, DragDropModule,

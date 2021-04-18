@@ -12,6 +12,7 @@ import { JourneyrouteComponent } from './routes/journeyroute/journeyroute.compon
 import { RegisterationComponent } from './routes/registeration/registeration.component';
 import { ReportsMetricsComponent } from './routes/reports-metrics/reports-metrics.component';
 import { UploadsComponent } from './routes/uploads/uploads.component';
+import { UserlistComponent } from './routes/userlist/userlist.component';
 
 const routes: Routes = [{ path: 'dashboard', component: DashboardComponent },
 { path: '', component: LoginComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [{ path: 'dashboard', component: DashboardComponent },
 { path: 'registration', component: RegisterationComponent },
 { path: 'uploads', component: UploadsComponent },
 { path: 'journey', component: JourneyrouteComponent },
-{ path: 'userList', component: UserListComponent }
+{ path: 'userList', component: UserlistComponent }
 ];
 
 // const routes : Routes =[

@@ -1,33 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PositionsService } from 'src/app/service/positions.service';
 import { GridsterConfig, GridsterItem, CompactType, GridsterItemComponentInterface } from 'angular-gridster2';
-import { FlagsComponent } from 'src/app/component/flags/flags.component';
+import { UserListComponent } from 'src/app/component/user-list/user-list.component';
+import { PositionsService } from 'src/app/service/positions.service';
 
 @Component({
-  selector: 'app-flags-route',
-  templateUrl: './flags.component.html',
-  styleUrls: ['./flags.component.css']
+  selector: 'app-userlist',
+  templateUrl: './userlist.component.html',
+  styleUrls: ['./userlist.component.css']
 })
-export class FlagsRoutingComponent implements OnInit {
+export class UserlistComponent implements OnInit {
+  iscollapsed = false
+  component18 = UserListComponent;
 
-  component16 = FlagsComponent;
   options?: GridsterConfig;
   loaded = false;
-  viewflagChatBox = false
-  
 
-  constructor( private router : Router ,private positionServc: PositionsService ) { }
-
+  constructor(private router: Router, private positionServc: PositionsService) { }
   ngOnInit(): void {
     this.gridsterInit();
   }
 
-  navigate(route:any){
-    this.router.navigateByUrl(route);
+  navigate(route: any) {
+    this.router.navigateByUrl(route)
   }
 
-  gridsterInit(){
+  gridsterInit() {
     this.options = {
       fixedRowHeight: 120,
       gridType: 'fixed',
@@ -69,26 +67,16 @@ export class FlagsRoutingComponent implements OnInit {
 
     this.positionServc.getPositions().subscribe((positions) => {
       //this.dashboard = positions;
-     console.log(positions)
-     this.loaded = true
+      console.log(positions)
+      this.loaded = true
     })
     // this.getPositionsFromLS();
   }
 
-  roomdetails:any
-
-  Roomdetail(e:any){
-    console.log(e)
-    this.viewflagChatBox = true
-    this.roomdetails = e
-  }
-
-  flageChatBoxInput(e :any){
-   this.viewflagChatBox= e
-  }
-  iscollapsed = false
-  toggleSidebar(){
+  collapsetoggle() {
     this.iscollapsed = !this.iscollapsed
   }
-
+  toggleSidebar() {
+    this.iscollapsed = !this.iscollapsed
+  }
 }

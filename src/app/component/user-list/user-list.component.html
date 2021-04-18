@@ -1,5 +1,5 @@
-<div class="grid-stack-item journey-grid" id="journey-grid">
-    <div class="grid-stack-item-content ui-draggable-handle">
+<!-- <div class="grid-stack-item journey-grid" id="journey-grid">
+    <div class="grid-stack-item-content ui-draggable-handle"> -->
         <div class="analytics-panel-wrapper" id="analytics-panel-wrapper">
             <div class="analytics-panel-header" ondblclick="$('#analytics-panel-body').toggle()">
                 <div class="analytics-panel-header-left">
@@ -22,24 +22,20 @@
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Email Id</th>
-                                    <th>User Name</th>
+                                    <th>UserName</th>
                                     <th>Registration Date</th>
                                     <th>Phone Number</th>
-                                    <th>Time Zone</th>
+                                    <!-- <th>Time Zone</th> -->
                                 </tr>
                                 <tr *ngFor="let user of list; let i = index">
                                     <td>{{user.first_name}}</td>
-                                    <td>{{user.last_Name}}</td>
+                                    <td>{{user.last_name}}</td>
 
                                     <td>{{user.email}}</td>
                                     <td class="dark">{{user.username}} </td>
-                                    <td class="dark">{{user.createdAt | date: 'dd/MM/yyyy mm ss'}}</td>
+                                    <td class="dark">{{user.createdAt | date}}</td>
                                     <td class="dark">{{user.phone_no}}</td>
-                                    <td>In Queue</td>
-                                    <td>Live</td>
-                                    <td>Closed</td>
-
-                                    <td class="light">CST</td>
+                         
                                 </tr>
 
                             </tbody>
@@ -49,8 +45,8 @@
             </div>
 
         </div>
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 <!-- </div>
 
     </div> -->

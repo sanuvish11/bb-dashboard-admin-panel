@@ -9,19 +9,16 @@ import { AuthService } from 'src/app/service/auth.service';
 export class Mp3pdfetcComponent implements OnInit {
   @Output() thismp3pdfetc = new EventEmitter();
   toggleclosebtn() {
+    
     this.thismp3pdfetc.emit(false);
+
   }
   showDelete= false
   SelectedJorney:any
   JourneyData:any
   JourneyMp3Pdf:any
-  isDisplay = false;
-  constructor(private auth : AuthService) {
-    this.auth.pdfDisplay.subscribe(message => {
-      console.log('isDisplay dpf', message);
-      this.isDisplay = message;
-    });
 
+  constructor(private auth : AuthService) {
     this.auth.SelectedJourneyItems.subscribe(data => {
       this.SelectedJorney = data
       this.JourneyMp3PdfData(this.SelectedJorney)

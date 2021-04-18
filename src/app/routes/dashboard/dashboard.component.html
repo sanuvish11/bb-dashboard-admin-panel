@@ -11,165 +11,165 @@
         </div>
     </a>
             <div class="leftmenu-scroll">
-        <ul class="list-group">
-            <div *ngFor="let item of data;let i = index;" id="cb_navbar-panel-panel-grid" style="margin-bottom: -24px">
-
-                <button type="input" class="accordion" (click)="toggleAccordian($event, i)">
-                    <img src="/assets/dist/img/icons/sidebar-icons/panel-navigation-icon.png" style="margin-right: 10px;">
-                    <span id="collapse-text" class="menu-collapsed">Navigation Panel <i class="fa fa-chevron-down"></i>  </span>
-                </button>
-                <div class="panel" *ngIf="!item.isActive" id="menu-collepse">
-                    <ul>
-                        <li>   <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('chatQueueCB')" >
-                            <span class="menu-collapsed"><input [(ngModel)]="Compononent[0].is_active" type="checkbox"
-                                    name="Chat Queue"></span>
-                            <span>
-                                <label class="menusub" for="cb_chat-queue-panel-grid">Chat Queue</label>
-                            </span>
-                        </a>
-                    </li>
-                      
-
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark"  (click)="toggleVisibility('workareaCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[1].is_active"
-                                    ></span>
-                            <span> <label class="menusub" for="cb_work-area-grid"> Work Area </label> </span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('WorkAreaNotesCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[3].is_active" > </span>
-                            <span>
-                                <label class="menusub" for="cb_work-area-notes-grid">Work Area Notes</label>
-                            </span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('bibleCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[2].is_active"> </span>
-                            <span>
-                                <label class="menusub" for="cb_bible-grid">Bible</label>
-                            </span>
-                        </a>
-
-
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('strongsCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[4].is_active"   > </span>
-                            <span> <label class="menusub" for="cb_strong-verses-grid">Strongs</label></span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('crossReferenceCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[5].is_active"> </span>
-                            <span> <label class="menusub" for="cb_cross-reference-grid">Cross Reference</label>
-                            </span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('personalFavsCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[6].is_active"> </span>
-                            <span>
-                                <label class="menusub" for="cb_personal-favs-grid"> Personal Favs </label>
-                            </span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('chatHistoryCB')">
-                            <span #pdf class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[7].is_active"></span>
-                            <span>
-                                <label class="menusub" for="cb_chat-history-panel-grid">Chat-History</label>
-                            </span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('calendarCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[8].is_active"></span>
-                            <span>
-                                <label class="menusub" for="cb_calendar-panel-grid">Calendar</label>
-                            </span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('mp3TabCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[9].is_active"></span>
-                            <span> <label class="menusub" for="cb_mp3-grid">Mp3’s, Clips</label></span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('pdfQuotesTabCB')">
-                            <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[10].is_active"> </span>
-                            <span> <label class="menusub" for="cb_pdf-grid">PDF’s, Quotes</label></span>
-                        </a>
-
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('barnaStatisticsCB')">
-                            <span class="menu-collapsed"> <input type="checkbox" [(ngModel)]="Compononent[11].is_active"></span>
-                            <span>
-                                <label class="menusub" for="cb_barna-panel-grid">Barna Statistics</label>
-                            </span>
-                        </a>
-                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('userListCB')">
-                            <span class="menu-collapsed"> <input type="checkbox" [(ngModel)]="Compononent[18].is_active"></span>
-                            <span>
-                                <label class="menusub" for="cb_barna-panel-grid">User List</label>
-                            </span>
-                        </a>
-
-                    </ul>
-                </div>
-            </div>
-            <a data-toggle="collapse" aria-expanded="false" class="text-dark bg-dark2  list-group-item list-group-item-action flex-column align-items-start" style="background-color: skyblue;">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/dashboard-icon.png"></span>
-                    <span class="menu-collapsed">Dashboard</span>
-
-                </div>
-            </a>
-
-            <a (click)="navigate('journey')" data-toggle="collapse" aria-expanded="false"  class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/journey-icon.png"></span>
-                    <span class="menu-collapsed">Journey</span>
-
-                </div>
-            </a>
-
-            <a (click)="navigate('chat')" data-toggle="collapse" aria-expanded="false"  class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/chat-icon.png"></span>
-                    <span class="menu-collapsed">Chat</span>
-                </div>
-            </a>
-            <a (click)="navigate('reports')"  data-toggle="collapse" aria-expanded="false"  class="btn-change bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start border-top">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/reports-icon.png"></span>
-                    <span class="menu-collapsed">Reports and Metrics</span>
-
-                </div>
-            </a>
-            <!-- <a data-toggle="collapse" aria-expanded="false" (click)="toggelemp3pdfect()" class="btn-change bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span><img src="/assets/dist/img/icons/sidebar-icons/reports-icon.png"></span>
-                    <span class="menu-collapsed"> toggelelustde</span>
-
-                </div>
-            </a> -->
-
-            <a (click)="navigate('flags')"  data-toggle="collapse" aria-expanded="false" class=" btn-1 sidebar_item_title bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/flag-icon.png"></span>
-                    <span class="menu-collapsed">Flags</span>
-
-                </div>
-            </a>
-            <a (click)="navigate('registration')" data-toggle="collapse" aria-expanded="false" class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start border-top">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/volunteer-icon.png"></span>
-                    <span class="menu-collapsed">Volunteer Registration</span>
-
-                </div>
-            </a>
-            <a (click)="navigate('uploads')" data-toggle="collapse" aria-expanded="false" class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center">
-                    <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/uploads.png"></span>
-                    <span class="menu-collapsed">Uploads</span>
-        
-                </div>
-            </a>
-        </ul>
+                <ul class="list-group"> 
+                    <div *ngFor="let item of data;let i = index;" id="cb_navbar-panel-panel-grid" style="margin-bottom: -24px">
+             
+                        <button type="input" class="accordion" (click)="toggleAccordian($event, i)">
+                            <img src="/assets/dist/img/icons/sidebar-icons/panel-navigation-icon.png" style="margin-right: 10px;">
+                            <span id="collapse-text" [ngClass]="iscollapsed?'d-none':''" class="menu-collapsed menu-icon-left">Navigation Panel <i class="fa fa-chevron-down"></i> </span>
+                        </button>
+                        <div class="panel" *ngIf="!item.isActive" id="menu-collepse">
+                            <ul>
+                                <li>   <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('chatQueueCB')" >
+                                    <span class="menu-collapsed"><input [(ngModel)]="Compononent[0].is_active" type="checkbox"
+                                            name="Chat Queue"></span>
+                                    <span>
+                                        <label class="menusub" for="cb_chat-queue-panel-grid">Chat Queue</label>
+                                    </span>
+                                </a>
+                            </li>
+                              
+             
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark"  (click)="toggleVisibility('workareaCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[1].is_active"
+                                            ></span>
+                                    <span> <label class="menusub" for="cb_work-area-grid"> Work Area </label> </span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('WorkAreaNotesCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[3].is_active" > </span>
+                                    <span>
+                                        <label class="menusub" for="cb_work-area-notes-grid">Work Area Notes</label>
+                                    </span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('bibleCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[2].is_active"> </span>
+                                    <span>
+                                        <label class="menusub" for="cb_bible-grid">Bible</label>
+                                    </span>
+                                </a>
+             
+             
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('strongsCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[4].is_active"   > </span>
+                                    <span> <label class="menusub" for="cb_strong-verses-grid">Strongs</label></span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('crossReferenceCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[5].is_active"> </span>
+                                    <span> <label class="menusub" for="cb_cross-reference-grid">Cross Reference</label>
+                                    </span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('personalFavsCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[6].is_active"> </span>
+                                    <span>
+                                        <label class="menusub" for="cb_personal-favs-grid"> Personal Favs </label>
+                                    </span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('chatHistoryCB')">
+                                    <span #pdf class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[7].is_active"></span>
+                                    <span>
+                                        <label class="menusub" for="cb_chat-history-panel-grid">Chat-History</label>
+                                    </span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('calendarCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[8].is_active"></span>
+                                    <span>
+                                        <label class="menusub" for="cb_calendar-panel-grid">Calendar</label>
+                                    </span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('mp3TabCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[9].is_active"></span>
+                                    <span> <label class="menusub" for="cb_mp3-grid">Mp3’s, Clips</label></span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('pdfQuotesTabCB')">
+                                    <span class="menu-collapsed"><input type="checkbox" [(ngModel)]="Compononent[10].is_active"> </span>
+                                    <span> <label class="menusub" for="cb_pdf-grid">PDF’s, Quotes</label></span>
+                                </a>
+             
+                                <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('barnaStatisticsCB')">
+                                    <span class="menu-collapsed"> <input type="checkbox" [(ngModel)]="Compononent[11].is_active"></span>
+                                    <span>
+                                        <label class="menusub" for="cb_barna-panel-grid">Barna Statistics</label>
+                                    </span>
+                                </a>
+             
+                            </ul>
+                        </div>
+                    </div>
+                    <a (click)="navigate('dashboard')" data-toggle="collapse" aria-expanded="false" class="text-dark bg-dark2  list-group-item list-group-item-action flex-column align-items-start" style="background-color: skyblue;" >
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/dashboard-icon.png"></span>
+                            <span [ngClass]="iscollapsed?'d-none':'d-flex'" class="menu-collapsed">Dashboard</span>
+             
+                        </div>
+                    </a>
+             
+                    <a (click)="navigate('journey')" data-toggle="collapse" aria-expanded="false"  class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/journey-icon.png"></span>
+                            <span [ngClass]="iscollapsed?'d-none':'d-flex'" class="menu-collapsed">Journey</span>
+             
+                        </div>
+                    </a>
+             
+                    <a (click)="navigate('chat')" data-toggle="collapse" aria-expanded="false"  class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start" >
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/chat-icon.png"></span>
+                            <span [ngClass]="iscollapsed?'d-none':'d-flex'" class="menu-collapsed">Chat</span>
+                        </div>
+                    </a>
+                    <a (click)="navigate('reports')"  data-toggle="collapse" aria-expanded="false"  class="btn-change bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start border-top">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/reports-icon.png"></span>
+                            <span [ngClass]="iscollapsed?'d-none':'d-flex'" class="menu-collapsed">Reports and Metrics</span>
+             
+                        </div>
+                    </a>
+                    <!-- <a data-toggle="collapse" aria-expanded="false" (click)="toggelemp3pdfect()" class="btn-change bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span><img src="/assets/dist/img/icons/sidebar-icons/reports-icon.png"></span>
+                            <span class="menu-collapsed"> toggelelustde</span>
+             
+                        </div>
+                    </a> -->
+             
+                    <a (click)="navigate('flags')"  data-toggle="collapse" aria-expanded="false" class=" btn-1 sidebar_item_title bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/flag-icon.png"></span>
+                            <span [ngClass]="iscollapsed?'d-none':'d-flex'" class="menu-collapsed">Flags</span>
+             
+                        </div>
+                    </a>
+                    <a (click)="navigate('registration')" data-toggle="collapse" aria-expanded="false" class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start border-top">
+                        <div class="d-flex w-100 justify-content-start align-items-center">
+                            <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/volunteer-icon.png"></span>
+                            <span [ngClass]="iscollapsed?'d-none':'d-flex'" class="menu-collapsed">Volunteer Registration</span>
+             
+                        </div>
+                    </a>
+                    <a (click)="navigate('uploads')" data-toggle="collapse" aria-expanded="false" class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
+                     <div class="d-flex w-100 justify-content-start align-items-center">
+                         <span class="menu-icon-left"><img src="/assets/dist/img/icons/sidebar-icons/uploads.png"></span>
+                         <span [ngClass]="iscollapsed?'d-none':'d-flex'" class="menu-collapsed">Uploads</span>
+             
+                     </div>
+                 </a>
+                 <a (click)="navigate('userList')" data-toggle="collapse" aria-expanded="false" class="bg-dark2 text-dark list-group-item list-group-item-action flex-column align-items-start">
+                     <div class="d-flex w-100 justify-content-start align-items-center">
+                         <span class="menu-icon-left"><img src="./assets/dist/img/icons/user-group.png"></span>
+                         <span class="menu-collapsed">Volunteer List</span>
+                     </div>
+                 </a>
+                </ul>
     </div>
     </div>
 
@@ -296,11 +296,11 @@
                 </gridster-item>
                 <!-- </div> -->
                 <!-- div -->
-                <gridster-item *ngIf="Compononent[18].is_active " [item]="{cols: Compononent[11].cols, rows: Compononent[11].rows, y: Compononent[11].y, x: Compononent[11].x}"
-                (mouseover)="componentPicked('barnaStatisticsCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsebarnastatistics ? 'chatcomponentclosed':'chatcomponentexpanded'">
-                     <ndc-dynamic [ndcDynamicOutputs]="barnastaticsthis " [ndcDynamicComponent]="component10 ">
+                <!-- <gridster-item *ngIf="Compononent[12].is_active " [item]="{cols: Compononent[12].cols, rows: Compononent[12].rows, y: Compononent[12].y, x: Compononent[12].x}"
+                (mouseover)="componentPicked('userListCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapseuserlist ? 'chatcomponentclosed':'chatcomponentexpanded'">
+                     <ndc-dynamic [ndcDynamicOutputs]="userlistthis" [ndcDynamicComponent]="component18 ">
                      </ndc-dynamic>
-                 </gridster-item>
+                 </gridster-item> -->
             </gridster>
         </div>
 </div>
