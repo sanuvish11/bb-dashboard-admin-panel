@@ -655,3 +655,6 @@ html {
     width: 352.5px;
     height: 50px !important
 }
+.gridster.fixed {
+    overflow: visible;
+}

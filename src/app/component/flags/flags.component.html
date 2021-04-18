@@ -4,11 +4,8 @@
     });
 </script>
 
-<!-- <div class="container" >
-    <div class="row">
-        <div class="col"> -->
-<div class="grid-stack-item journey-grid" id="journey-grid">
-    <div class="grid-stack-item-content ui-draggable-handle">
+<div class="journey-wrapper" id="journey-wrapper">
+    <!-- <div class="grid-stack-item-content ui-draggable-handle"> -->
         <div class="analytics-panel-wrapper" id="analytics-panel-wrapper">
             <div class="analytics-panel-header" ondblclick="$('#analytics-panel-body').toggle()">
                 <div class="analytics-panel-header-left">
@@ -23,6 +20,7 @@
                         <div class="form-group">
                             <label>Volunteer</label>
                             <select formControlName="username" name="username">
+                                <option value="">Name..</option>
                                 <option *ngFor="let user of userlist" value="{{user.username}}">
                                     {{user.username}}
                                 </option>
@@ -31,6 +29,7 @@
                         <div class="form-group">
                             <label>Status</label>
                             <select formControlName="status">
+                                <option value="">Flag..</option>
                                 <option value="1">Active</option>
                                 <option value="2">Resolve</option>
                             </select>
@@ -39,7 +38,7 @@
                         <div class="form-group">
                             <label>Country</label>
                             <select formControlName="country" (change)="seletCounty(country)" name="country">
-                                <option value="">your country</option>
+                                <option value="">Country..</option>
                                 <option *ngFor="let country of countryList" value="{{country.id}}">
                                     {{country.country_name}}
                                 </option>
@@ -49,7 +48,7 @@
                         <div class="form-group">
                             <label>State</label>
                             <select formControlName="state" (change)="seletCounty(state)" id="state">
-                                <option value="">your state</option>
+                                <option value="">State..</option>
                                 <option *ngFor="let state of stateList" value="{{state.id}}">
                                     {{state.state_name}} </option>
                             </select>
@@ -59,12 +58,16 @@
 
                         <div class="form-group">
                             <label>Month</label>
-                            <input type="date" formControlName="startMonth">
-
+                            <span>
+                                <input type="date" formControlName="startMonth">
+                            </span>
                         </div>
                         <div class="form-group">
                             <label>To Month</label>
-                            <input type="date" formControlName="endMonth" value="">
+                            <span>
+                                <input type="date" formControlName="endMonth" value="">
+                            </span>
+                        
 
                         </div>
 
@@ -72,12 +75,15 @@
 
                         <div class="form-group">
                             <label>Time: From</label>
-                            <input formControlName="fromTime" type="time">
+                            <span>
+                                <input formControlName="fromTime" type="time">
+                            </span>
+                            
 
                         </div>
                         <div class="form-group">
-                            <label>&nbsp;</label>
-                            <span>To Time:
+                            <label>To Time:</label>
+                            <span>
                                 <input formControlName="toTime" type="time">
                             </span>
 
@@ -132,7 +138,7 @@
             </div>
 
         </div>
-    </div>
+    <!-- </div> -->
 </div>
 <!-- </div>
 
