@@ -15,12 +15,13 @@ import { PersonalFavsComponent } from 'src/app/component/navigation-panel/person
 import { StrongsComponent } from 'src/app/component/navigation-panel/strongs/strongs.component';
 import { WorkAreaNotesComponent } from 'src/app/component/navigation-panel/work-area-notes/work-area-notes.component';
 import { WorkAreaComponent } from 'src/app/component/navigation-panel/work-area/work-area.component';
+import { UserListComponent } from 'src/app/component/user-list/user-list.component';
 // import { ReportsmetricsComponent } from 'src/app/component/reportsmetrics/reportsmetrics.component';
 import { VolunteerregistrationComponent } from 'src/app/component/volunteerregistration/volunteerregistration.component';
 
 import { PositionsService } from 'src/app/service/positions.service';
 import { DashboardService } from 'src/app/service/positionservice/dashboard.service';
-
+// app-user-list
 declare var $el: JQuery;
 @Component({
   selector: 'app-dashboard',
@@ -55,6 +56,7 @@ export class DashboardComponent implements OnInit {
   // component15 = ReportsmetricsComponent;
   component16 = FlagsComponent;
   component17 = VolunteerregistrationComponent;
+  component18 = UserListComponent;
 
 
   Compononent: any = []
@@ -150,6 +152,14 @@ export class DashboardComponent implements OnInit {
       },
       {
         widget: "barnaStatisticsCB",
+        is_active: false,
+        x: 0,
+        y: 0,
+        rows: 5,
+        cols: 5,
+      },
+      {
+        widget: "userListCB",
         is_active: false,
         x: 0,
         y: 0,
