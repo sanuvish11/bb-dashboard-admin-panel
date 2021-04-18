@@ -23,12 +23,28 @@ export class AuthService {
   SelectedPesonalFavData: any;
   father = localStorage.getItem("name")
   constructor(private http: HttpClient) { }
+
   private headerSource = new BehaviorSubject(true);
   headerDisplay = this.headerSource.asObservable();
   
   headerFlag(message: boolean) {
     this.headerSource.next(message);
   }
+
+  private pdfSource = new BehaviorSubject(false);
+  pdfDisplay = this.pdfSource.asObservable();
+  
+  pdfFlag(message: boolean) {
+    this.pdfSource.next(message);
+  }
+
+  private journeyDataSource = new BehaviorSubject(false);
+  journeyDataDisplay = this.journeyDataSource.asObservable();
+  
+  journeyDataFlag(message: boolean) {
+    this.pdfSource.next(message);
+  }
+  
   login(credentials: any): Observable<any> {
     return this.http.post(AUTH_API + 'signin', {
       username: credentials.username,

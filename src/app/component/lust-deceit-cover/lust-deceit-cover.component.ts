@@ -25,14 +25,17 @@ JourneyData : any
 JourneyScripts:any
 SelectedJorney :any
 showDelete = false
-
+isDisplay = false;
 
   constructor(private auth : AuthService , private router : Router) {
-this.auth.SelectedJourneyItems.subscribe(data => {
-  this.SelectedJorney = data
-  this.JourneyScriptsData(this.SelectedJorney)
-
-})
+    this.auth.pdfDisplay.subscribe(message => {
+      console.log('isDisplay dpf', message);
+      this.isDisplay = message;
+    });
+    this.auth.SelectedJourneyItems.subscribe(data => {
+      this.SelectedJorney = data
+      this.JourneyScriptsData(this.SelectedJorney)
+    });
 
    }
 

@@ -17,7 +17,10 @@ export class JourneyComponent implements OnInit {
   SelectedJourneyName: any
   AllJData: any;
   @Output() thisjourney = new EventEmitter();
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService) {
+    this.auth.pdfFlag(false);
+    this.auth.journeyDataFlag(false);
+   }
 
   toggleclosebtn() {
     this.isjourny = !this.isjourny;
@@ -49,8 +52,11 @@ export class JourneyComponent implements OnInit {
     // this.http.get('http://localhost:8080/api/auth/savedJourneyScriptures/' + this.father_id )
     this.auth.getSavedJourneys(this.father_id)
       .subscribe(data => {
-        this.savedJourneysList = data
-        console.log(data)
+        this.savedJourneysList = data;
+        this.SelectedJourneyName = this.savedJourneysList[0]?.JOUNEY_NAME;
+        this.SelectedJourney = this.savedJourneysList[0];
+        this.SelectedJourneyName = this.savedJourneysList[0]?.JOUNEY_NAME;
+        console.log('savedJourneysList', data);
 
       })
   }
@@ -62,14 +68,16 @@ export class JourneyComponent implements OnInit {
     this.SelectedJourneyName = journey.JOUNEY_NAME;
     // this.journeyOutput.emit({journey : journey, status : 1 })
     this.auth.SelectedJourneyItems.next(journey)
-    console.log(journey)
+    this.auth.pdfFlag(true);
+    this.auth.journeyDataFlag(true);
+    // console.log(journey)
   }
 
   getAllJourneyData() {
     this.auth.allJourneyData(this.father_id)
       .subscribe(data => {
         this.AllJData = data
-        console.log(this.AllJData);
+        console.log('AllJData', this.AllJData);
         this.getcounts()
       })
   }
@@ -131,11 +139,12 @@ export class JourneyComponent implements OnInit {
       id: this.SelectedJourney.id,
       JOUNEY_NAME: newJName
     }
-    console.log(body)
+    // console.log(body)
     this.auth.RenameJourney(body).subscribe(data => {
       if (data == "1") {
         this.Savedjourneys()
         this.NewJourneyName = undefined
+        this.IsRename = false;
         // const renamedItem= this.savedJourneysList.find((x:any)=> x.JOURNEY_NAME == newJName)
         // console.log(renamedItem)
         // this.auth.SelectedJourneyItems.next(renamedItem)
@@ -162,17 +171,29 @@ export class JourneyComponent implements OnInit {
     this.IsDublicate = false
 
   }
+  deleteJourney(){
+    
+    if(this.SelectedJourney.id){
+    this.auth.Journeydelete(this.SelectedJourney.id).subscribe(data => {
+      if (data.status == "1") {
+        this.Savedjourneys();
+      }
+    });
+  } else {
+    alert();
+  }
+
+  }
   dublicateJourney(name: any, actionName: string) {
-    console.log(this.SelectedJourney)
+    // console.log(this.SelectedJourney)
     const body = {
       father_id: this.father_id,
       jRef: this.SelectedJourney.id,
       Name: name,
       action: actionName
     }
-
     this.auth.dublicateJourney(body).subscribe(data => {
-      console.log(data)
+      // console.log(data)
       if (data == "1") {
         this.closeRenameDup()
         this.Savedjourneys()
