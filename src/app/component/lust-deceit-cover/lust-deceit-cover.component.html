@@ -2,7 +2,7 @@
     <div class="grid-stack-item-content"> -->
 
         <!-- Journey Master Div -->
-        <div class="journey-sub-wrapper" id="journey-sub-wrapper">
+        <div class="journey-sub-wrapper" id="journey-sub-wrapper" *ngIf="isDisplay">
 
 
             <!-- Journey Header-->
@@ -16,9 +16,10 @@
                     <a class="journey-sub-dot-menu" (click)="toggleDelete()">
                         <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                     </a>
-                    <!-- <a href="javascript:void(0)" id="journey-sub-close-btn">
-                        <i style="padding-left: 5px; border-left:1px solid #78500c" class="fa fa-close" (click)="toggleclosebtn()"></i>
-                    </a> -->
+                   
+                    <a href="javascript:void(0)" (click)="toggleclosebtn()">
+                        <i style="padding-left: 5px; border-left:1px solid #78500c" class="fa fa-close"></i>
+                    </a>
                 </div>
 
             </div>

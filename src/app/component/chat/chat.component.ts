@@ -22,6 +22,7 @@ export class ChatComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer!: ElementRef;
   ischatpanel = true;
   isClose = true;
+  roomDataApi:any;
   chatRoomDetail: any;
   chatOverView: any;
   chatMessageCounter = 0
@@ -29,7 +30,6 @@ export class ChatComponent implements OnInit {
   message: any
   bgColor: any;
   comfirmCloseStatus = false
-
   CloseChatOptions = false
   showConfirmClose = false;
   lastUsermessage: any;
@@ -46,6 +46,10 @@ export class ChatComponent implements OnInit {
   dashboard: Array<GridsterItem> = [{ cols: 5, rows: 5, x: 0, y: 0 }]
   loaded = true;
   singleChatData: any;
+  // ngOnDestroy() {
+  //   this.roomDataApi.unsubscribe();
+  //   console.log('Items destroyed');
+  // }
   ngOnInit() {
     this.confessorName = localStorage.getItem("confessorName");
     this.room = localStorage.getItem("roomId");
@@ -206,8 +210,8 @@ export class ChatComponent implements OnInit {
 
   sendMessage() {
     const date = new Date();
-      // replace(/T/, '').
-      // replace(/\..+/, '');
+    // replace(/T/, '').
+    // replace(/\..+/, '');
 
     this.chatService.sendMessage({ sender: this.name, msg: this.newMessage, time: date, sender_id: 1, room: this.room, status: 0 });
     this.newMessage = '';
@@ -424,7 +428,8 @@ export class ChatComponent implements OnInit {
   // }
 
   GetSingleRoomDetails() {
-    this.authservice.getRoomData(this.room).subscribe(rD => {
+
+    this.roomDataApi = this.authservice.getRoomData(this.room).subscribe(rD => {
       this.chatRoomDetail = rD
       console.log(this.chatRoomDetail);
     });

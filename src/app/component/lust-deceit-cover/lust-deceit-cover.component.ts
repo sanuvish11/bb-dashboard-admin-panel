@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./lust-deceit-cover.component.css']
 })
 export class LustDeceitCoverComponent implements OnInit {
-
+  isDisplay = false;
   @Output() thislustdecit = new EventEmitter();
   toggleclosebtn(){
     this.thislustdecit.emit(false);
@@ -28,11 +28,14 @@ showDelete = false
 
 
   constructor(private auth : AuthService , private router : Router) {
-this.auth.SelectedJourneyItems.subscribe(data => {
-  this.SelectedJorney = data
-  this.JourneyScriptsData(this.SelectedJorney)
-
-})
+    this.auth.pdfDisplay.subscribe(message => {
+      console.log('isDisplay dpf', message);
+      this.isDisplay = message;
+    });
+    this.auth.SelectedJourneyItems.subscribe(data => {
+      this.SelectedJorney = data
+      this.JourneyScriptsData(this.SelectedJorney)
+    });
 
    }
 

@@ -2,7 +2,7 @@
     <!-- <div class="grid-stack-item-content"> -->
 
         <!-- Journey Master Div -->
-        <div class="journey-sub2-wrapper" id="journey-sub2-wrapper">
+        <div class="journey-sub2-wrapper" id="journey-sub2-wrapper" *ngIf="isDisplay">
             <!-- Journey Header-->
             <div class="journey-sub2-header" ondblclick="expandCollapse('journey-sub2');">
                 <div class="journey-sub-header-left">
@@ -12,9 +12,10 @@
                 <div class="journey-sub-header-right gridster-item-content">
                     <a class="journey-sub-dot-menu" (click)="toggleDelete()"><i class="fa fa-ellipsis-v"
                             aria-hidden="true"></i></a>
-                    <a id="journey-sub2-close-btn">
-                        <i  style="padding-left: 5px; border-left:1px solid #78500c" (click)="toggleclosebtn()" class="fa fa-close gridster-item-content"></i></a>
-                </div>
+                            <a id="journey-sub2-close-btn" (click)="toggleclosebtn()">
+                                <i  style="padding-left: 5px; border-left:1px solid #78500c" class="fa fa-close gridster-item-content"></i></a>
+                        </div>
+                    
             </div>
             <!-- Journey Body-->
             <div class="journey-sub2-body" id="journey-sub2-body">
