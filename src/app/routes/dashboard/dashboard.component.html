@@ -101,6 +101,12 @@
                                 <label class="menusub" for="cb_barna-panel-grid">Barna Statistics</label>
                             </span>
                         </a>
+                        <a class="list-group-item list-group-item-action bg-dark1 text-dark" (click)="toggleVisibility('userListCB')">
+                            <span class="menu-collapsed"> <input type="checkbox" [(ngModel)]="Compononent[18].is_active"></span>
+                            <span>
+                                <label class="menusub" for="cb_barna-panel-grid">User List</label>
+                            </span>
+                        </a>
 
                     </ul>
                 </div>
@@ -289,6 +295,12 @@
                     </ndc-dynamic>
                 </gridster-item>
                 <!-- </div> -->
+                <!-- div -->
+                <gridster-item *ngIf="Compononent[18].is_active " [item]="{cols: Compononent[11].cols, rows: Compononent[11].rows, y: Compononent[11].y, x: Compononent[11].x}"
+                (mouseover)="componentPicked('barnaStatisticsCB')" (mouseout)="pickedComponent =null" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsebarnastatistics ? 'chatcomponentclosed':'chatcomponentexpanded'">
+                     <ndc-dynamic [ndcDynamicOutputs]="barnastaticsthis " [ndcDynamicComponent]="component10 ">
+                     </ndc-dynamic>
+                 </gridster-item>
             </gridster>
         </div>
 </div>
