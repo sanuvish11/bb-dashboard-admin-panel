@@ -178,21 +178,21 @@
                             <h6  [ngClass]="(BBStatMonth)?'active':''" (click)="getMonthlyChatRecords()"><span>Month</span></h6>
                         </div>
                         <div class="tab-body gridster-item-content">
-                            <span> TODAY </span>
+                        
                             <div   >
                                 <div class="top">
                                     <select [(ngModel)]="selectedVolunteer" (change)="getTodaysChat()" *ngIf="BBStatToday">
                                         <option disabled selected>Select One </option>
-                                        <option *ngFor="let vol of allVolunteers;"  >{{vol.username}}</option>
+                                        <option *ngFor="let vol of allVolunteers;"  value="{{vol.username}}" >{{vol.username}}</option>
                                     </select>
     
                                     <select [(ngModel)]="selectedVolunteer" (change)="getWeeklyChatRecords()" *ngIf="BBStatweek">
                                         <option disabled selected>Select One </option>
-                                        <option *ngFor="let volunteer of allVolunteers; "value="vol.username" >{{volunteer.username}}</option>
+                                        <option *ngFor="let volunteer of allVolunteers; "value="{{volunteer.username}}" >{{volunteer.username}}</option>
                                     </select>
                                     <select [(ngModel)]="selectedVolunteer" (change)="getMonthlyChatRecords()" *ngIf="BBStatMonth">
                                         <option disabled selected>Select One </option>
-                                        <option *ngFor="let volunteer of allVolunteers; "value="vol.username" >{{volunteer.username}}</option>
+                                        <option *ngFor="let volunteer of allVolunteers; "value="{{volunteer.username}}" >{{volunteer.username}}</option>
                                     </select>
                                     <div class="right">
                                         <h6>Total of BBers:</h6>
@@ -206,16 +206,18 @@
                                             </th>
                                             <!-- <th>First Chat<span class="number-sign">#</span><span class="percent-sign">%</span></th> -->
                                             <th>Avg Time/Chat</th>
-                                            <th>Restored<span class="number-sign">#</span><span class="percent-sign">%</span></th>
-                                            <th>Chats in Country</th>
+                                            <!-- <th>Restored<span class="number-sign">#</span><span class="percent-sign">%</span></th> -->
+                                            <!-- <th>Chats in Country</th> -->
                                         </tr>
                                         <tr *ngFor="let data of CurrentDayChatRecords; let i =index">
                                             <td>{{i+1}}</td>
-                                            <!-- <td>14</td> -->
+                                            
+                                         
                                             <td>{{averageChatTime | number : '1.2-2'}} mins</td>
-                                            <td>{{data.count}}</td>
-                                            <td>5</td>
+                                            <!-- <td>{{data.count}}</td> -->
+                                            <!-- <td>5</td> -->
                                         </tr>
+                                        <!-- <td>   {{averageChatTime}}</td> -->
                                     </tbody></table>
                                 </div>
                             </div>
@@ -231,7 +233,7 @@
 
         
 <!-- FLAGS -->
-           <gridster-item  [item]="{cols: 3, rows: 3, y: 0, x: 0}" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsereportmatric?'chatcomponentclosed':'chatcomponentexpanded'">
+           <gridster-item  [item]="{cols: 4, rows: 4, y: 0, x: 0}" class="gridster-item-content " style="padding: 1px; margin-left: 10px; margin-right: 10px; padding-top: 5px;" [ngClass]="collapsereportmatric?'chatcomponentclosed':'chatcomponentexpanded'">
             <div class="analytics-panel-wrapper" id="analytics-panel-wrapper">
                 <div class="analytics-panel-header" ondblclick="expandCollapse('analytics-panel')">
                     <div class="analytics-panel-header-left">

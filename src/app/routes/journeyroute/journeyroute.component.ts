@@ -57,7 +57,7 @@ export class JourneyrouteComponent implements OnInit {
       minRows: 1,
       maxRows: 100,
       minItemRows: 1,
-      maxItemRows: 50,
+      maxItemRows: 50, 
       defaultItemRows: 3,
       minCols: 3,
       maxCols: 90,

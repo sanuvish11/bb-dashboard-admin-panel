@@ -340,11 +340,13 @@ export class BibleComponent implements OnInit {
     this.SearchRecordLimit = this.SearchRecordLimit + this.pageCountSchema
     // console.log(this.searchQuery + " " + this.version);
     this.apiService.fetchBibleData(this.searchQuery, this.version, this.pageCountSchema, this.SearchRecordLimit).subscribe((message) => {
-
-
-
       this.searchResults = message.json.results;
       console.log(this.searchResults)
+       if (message.length != 0) {
+        this.ArrowHideShow = true;
+      
+
+      }
 
       console.log(this.ArrowHideShow);
       this.preResult = message.jsonresponse;
@@ -466,7 +468,7 @@ export class BibleComponent implements OnInit {
     this.apiService.workArea(body).subscribe((data) => {
       console.log(data);
       if (data == 1) {
-        let msg = "successfully added to work Area";
+        let msg = "Successfully added to work Area";
         this.showAlert(msg, '#87dc34')
         // this.apiService.workarealist(this.father_id)
         // this.addedToWorkArea.emit(1)

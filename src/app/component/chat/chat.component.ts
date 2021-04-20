@@ -34,7 +34,6 @@ export class ChatComponent implements OnInit {
   showConfirmClose = false;
   lastUsermessage: any;
   loadinitialMessage = false;
-
   showSubmitBtn = true
   @Output() thischat = new EventEmitter();
   //@Output() thischat1 = new EventEmitter();

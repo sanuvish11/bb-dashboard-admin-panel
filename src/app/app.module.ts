@@ -64,6 +64,7 @@ import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { ReversePipe } from './component/volunteerregistration/reverse.pipe';
 import { UserlistComponent } from './routes/userlist/userlist.component';
+import { ToastrModule } from 'ngx-toastr';
 
 const config: SocketIoConfig = { url: environment.SocketUrl, options: {} };
 
@@ -123,7 +124,7 @@ const config: SocketIoConfig = { url: environment.SocketUrl, options: {} };
 
   ],
   imports: [CKEditorModule, AngularEditorModule, CommonModule, DragDropModule,
-    NgxPaginationModule,NgbModule,
+    NgxPaginationModule,NgbModule, ToastrModule.forRoot(),
     BrowserModule, HttpClientModule, FormsModule, DynamicModule, GridsterModule, DynamicIoModule, CalendarModule, ReactiveFormsModule,
     AppRoutingModule, DragDropModule, SocketIoModule.forRoot(config)
   ],

@@ -76,13 +76,13 @@ getworkAreaFromBible(){
   }
   deleteall() {
     if (confirm("do u want to clear work area..?")) {
+
       this.authservice.deleteallWorkAreaNote().subscribe(
         response => {
           this.getworkarea()
           console.log(response);
           let msg = 'All work notes removed';
           this.showAlert(msg, '#fd2626');
-         
         },
         error => {
           let msg = 'NO Record Found!';
@@ -106,11 +106,11 @@ getworkAreaFromBible(){
 
   saveJourney() {
     if (this.JourneyName == undefined || this.JourneyName == '') {
-      let msg = "type a name to save your journey";
+      let msg = "Type a name to save your journey";
       this.showAlert(msg, '#fd2626');
     }
     else {
-      if (confirm("do u want to save thhis journey by name " + this.JourneyName)) {
+    
 
         if (this.list != 0) {
           const body = {
@@ -120,7 +120,7 @@ getworkAreaFromBible(){
           this.authservice.saveJorney(body).subscribe(data => {
             console.log(data)
             this.getworkarea();
-            let msg = this.JourneyName + "saved successfully..!";
+            let msg = this.JourneyName +" "+ "saved successfully..!";
             this.showAlert(msg, '#87dc34');
             this.JourneyName = '';
           })
@@ -130,7 +130,7 @@ getworkAreaFromBible(){
       }
 
 
-    }
+    
   }
 
   bgColor: any;

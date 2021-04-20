@@ -9,7 +9,7 @@ import * as Highcharts from 'highcharts';
 import { HighchartserviceService } from 'src/app/service/highchartservice.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { formatDate } from '@angular/common';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-reports-metrics',
@@ -37,7 +37,10 @@ export class ReportsMetricsComponent implements OnInit {
   selectedVolunteerWeek: any = "Select One"
 
   // currentDate = new Date();
-  currentDateTime = formatDate(new Date(), 'yyyy-MM-dd 00:00:00', 'en');
+  // currentDateTime = new Date();
+  currentDateTime1= moment.utc().format('yyyy-MM-DD HH:mm:ss')
+
+   currentDateTime = formatDate(new Date(), 'yyyy-MM-dd 00:00:00', 'en');
 
   perviousDate = new Date(this.currentDateTime);
   previousDay = this.perviousDate.setDate(this.perviousDate.getDate() - 1);
@@ -332,12 +335,15 @@ export class ReportsMetricsComponent implements OnInit {
   // RoomExitTimeArray:any=[]
 
   getTodaysChat() {
+    alert(this.currentDateTime1)
+    console.log(this.selectedVolunteer)
     this.BBStatToday = true;
     this.BBStatweek = false;
     this.BBStatMonth = false;
     this.timeAray = []
-    this.apisrvc.getcurrentDayAllChatRecords(this.pxDate, this.currentDateTime, this.selectedVolunteer).subscribe(data => {
+    this.apisrvc.getcurrentDayAllChatRecords(this.pxDate, this.currentDateTime1, this.selectedVolunteer).subscribe(data => {
       this.CurrentDayChatRecords = data;
+      console.log(this.CurrentDayChatRecords)
       console.log(this.CurrentDayChatRecords[1].element);
 
       for (let i = 0; i < this.CurrentDayChatRecords.length; i++) {
@@ -350,7 +356,7 @@ export class ReportsMetricsComponent implements OnInit {
         // const totalChattTime:number = this.timeStringToFloat(chatEndTimeOnly) -  this.timeStringToFloat(chatstartTimeOnly)
         const totalChattTime = parseFloat(chatEndTimeOnly) - parseFloat(chatstartTimeOnly)
         const tCt = (totalChattTime)
-        console.log(tCt)
+        console.log("chatb result",tCt)
         this.timeAray.push(tCt)
         // this.createdDayTimeArray.push(createdTime.getUTCHours() + ':' + createdTime.getUTCMinutes())
         // this.RoomExitTimeArray.push(createdDate.getUTCHours() + ':' + createdDate.getUTCMinutes())
@@ -429,7 +435,7 @@ export class ReportsMetricsComponent implements OnInit {
       this.sumArray();
     })
 
-    console.log(this.timeAray);
+
   }
 
 
@@ -443,8 +449,7 @@ export class ReportsMetricsComponent implements OnInit {
     this.apisrvc.getcurrentDayAllChatRecords(this.monthStartDate, this.monthEndDate, this.selectedVolunteer).subscribe(data => {
       this.CurrentDayChatRecords = data
       console.log(this.CurrentDayChatRecords)
-      // const d = new Date('1970-01-01T09:30:00.000Z') // Parses a ISO 8601 Date
-      // console.log(d.getUTCHours() + ':' + d.getUTCMinutes());
+    
       for (let i = 0; i < this.CurrentDayChatRecords.length; i++) {
         const createdTime = new Date(this.CurrentDayChatRecords[i].createdAt); // Parses a ISO 8601 Date
         const updatedTime = new Date(this.CurrentDayChatRecords[i].updatedAt); // Parses a ISO 8601 Date
@@ -454,8 +459,9 @@ export class ReportsMetricsComponent implements OnInit {
         console.log(chatEndTimeOnly);
         // const totalChattTime:number = this.timeStringToFloat(chatEndTimeOnly) -  this.timeStringToFloat(chatstartTimeOnly)
         const totalChattTime = parseFloat(chatEndTimeOnly) - parseFloat(chatstartTimeOnly);
+
         const tCt = (totalChattTime);
-        console.log(tCt);
+      
         this.timeAray.push(tCt);
         // this.createdDayTimeArray.push(createdTime.getUTCHours() + ':' + createdTime.getUTCMinutes())
         // this.RoomExitTimeArray.push(createdDate.getUTCHours() + ':' + createdDate.getUTCMinutes())
@@ -533,7 +539,7 @@ export class ReportsMetricsComponent implements OnInit {
     })
   }
   iscollapsed = false
-  toggleSidebar(){
+  toggleSidebar() {
     this.iscollapsed = !this.iscollapsed
   }
 

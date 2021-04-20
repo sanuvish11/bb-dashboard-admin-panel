@@ -94,15 +94,15 @@
                     <div class="navigation-wrapper" *ngIf="ArrowHideShow==true">
                         <div class="navigation gridster-item-content" id="isShowDiv2">
                             <div class="navigation-inner gridster-item-content ">
-                                <i *ngIf="!SearchHeader" class="fa fa-angle-double-left double1 " aria-hidden="true"
+                                <i  class="fa fa-angle-double-left double1 " aria-hidden="true"
                                     (click)="previousBook()"></i>
-                                <i *ngIf="!SearchHeader" class="fa fa-angle-left gridster-item-content "
+                                <i  class="fa fa-angle-left gridster-item-content "
                                     aria-hidden="true " (click)="pervious()"></i>
                                 <h6 *ngIf="heading">{{ bookFullName }} {{ chapter }}</h6>
                                 <h6 *ngIf="SearchHeader">{{searchQuery}} </h6>
-                                <i *ngIf="!SearchHeader" class="fa fa-angle-right gridster-item-content rightArrow"
+                                <i  class="fa fa-angle-right gridster-item-content rightArrow"
                                     aria-hidden="true " (click)="next()"></i>
-                                <i *ngIf="!SearchHeader" class="fa fa-angle-double-right double1 " aria-hidden="true "
+                                <i  class="fa fa-angle-double-right double1 " aria-hidden="true "
                                     (click)="nextBook()"></i>
                             </div>
                         </div>
