@@ -73,7 +73,7 @@
 
 
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Time: From</label>
                             <span>
                                 <input formControlName="fromTime" type="time">
@@ -88,7 +88,7 @@
                             </span>
 
 
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn btn-primary" (click)="onSubmit()"> Search</button>
                         <button type="submit" class="btn btn-primary" (click)="reset()"> Reset</button>
                     </div>
@@ -109,7 +109,7 @@
                                 <tr>
                                     <th>User ID</th>
                                     <th>Admin ID</th>
-                                    <th>Duration</th>
+                                    <!-- <th>Duration</th> -->
                                     <th>Started At:</th>
                                     <th>Last Message At:</th>
                                     <th>Status</th>
@@ -121,7 +121,7 @@
                                     <td *ngIf="room.IS_FLAG == 0" class="light">{{room.USER_NAME}}</td>
 
                                     <td>{{room.PASTOR_ID}}</td>
-                                    <td class="dark">222 </td>
+                                    <!-- <td class="dark">222 </td> -->
                                     <td class="dark">{{room.createdAt | date: 'dd/MM/yyyy mm ss'}}</td>
                                     <td class="dark">{{room.updatedAt | date: 'dd/MM/yyyy mm ss'}}</td>
                                     <td *ngIf="room.CHAT_STATUS == 0" class="light">In Queue</td>

@@ -3,7 +3,6 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GridsterItem, GridsterItemComponentInterface } from 'angular-gridster2';
-import * as moment from 'moment';
 import { AuthService } from 'src/app/service/auth.service';
 import { PositionsService } from 'src/app/service/positions.service';
 
@@ -120,10 +119,10 @@ export class FlagsComponent implements OnInit {
   }
   isShown: boolean = false; // hidden by default
 
-
   toggleShow() {
     this.isShown = !this.isShown;
   }
+  
 
   allChatRooms: any
   getAllChatRooms() {
