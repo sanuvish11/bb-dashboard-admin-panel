@@ -405,7 +405,7 @@ export class AuthService {
   }
   Search(body: any): Observable<any> {
     console.log(body)
-    return this.http.post(AUTH_API + 'UserSearch/', {
+    return this.http.post(AUTH_API + 'UserSearch', {
       body: body
     }, httpOptions);
   }

@@ -7,7 +7,7 @@
 <div class="journey-wrapper" id="journey-wrapper">
     <!-- <div class="grid-stack-item-content ui-draggable-handle"> -->
         <div class="analytics-panel-wrapper" id="analytics-panel-wrapper">
-            <div class="analytics-panel-header" ondblclick="$('#analytics-panel-body').toggle()">
+            <div class="analytics-panel-header" >
                 <div class="analytics-panel-header-left">
                     <img src="/assets/dist/img/icons/flag.png">
                     <span>Chats and Flags</span>
@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label>Status</label>
                             <select formControlName="status">
-                                <option value="">Flag..</option>
+                                <option value="" disabled>Flag..</option>
                                 <option value="1">Active</option>
                                 <option value="2">Resolve</option>
                             </select>
@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label>Country</label>
                             <select formControlName="country" (change)="seletCounty(country)" name="country">
-                                <option value="">Country..</option>
+                                <option value="" disabled>Country..</option>
                                 <option *ngFor="let country of countryList" value="{{country.id}}">
                                     {{country.country_name}}
                                 </option>
@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <label>State</label>
                             <select formControlName="state" (change)="seletCounty(state)" id="state">
-                                <option value="">State..</option>
+                                <option value="" disabled>State..</option>
                                 <option *ngFor="let state of stateList" value="{{state.id}}">
                                     {{state.state_name}} </option>
                             </select>

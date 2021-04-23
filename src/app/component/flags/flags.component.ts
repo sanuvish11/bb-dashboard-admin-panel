@@ -3,6 +3,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GridsterItem, GridsterItemComponentInterface } from 'angular-gridster2';
+import * as moment from 'moment';
 import { AuthService } from 'src/app/service/auth.service';
 import { PositionsService } from 'src/app/service/positions.service';
 
@@ -50,9 +51,9 @@ export class FlagsComponent implements OnInit {
     })
 
 
-    setInterval(() => {
-      this.timeNow = new Date();
-    }, 1);
+    // setInterval(() => {
+    //   this.timeNow = new Date();
+    // }, 1);
   }
   ngOnInit() {
     this.getAllChatRooms();
@@ -187,20 +188,19 @@ export class FlagsComponent implements OnInit {
   onSubmit() {
     const body = {
       PASTOR_ID: this.ChatFlagFrom?.value.username,
-      CHAT_INIT_DATE: this.ChatFlagFrom?.value.startMonth,
+      CHAT_INIT_DATE:this.ChatFlagFrom?.value.startMonth,
       updatedAt: this.ChatFlagFrom?.value.endMonth,
       FIRST_CHAT_TIME: this.ChatFlagFrom?.value.fromTime,
       LAST_MESSAGE_TIME: this.ChatFlagFrom?.value.toTime,
-      CHAT_STATUS: this.ChatFlagFrom?.value.status
+      CHAT_STATUS: this.ChatFlagFrom?.value.status,
+      country:this.ChatFlagFrom?.value.country
     }
     this.authService.Search(body).subscribe(data => {
       this.allChatRooms = data;
 
-      console.log(data)
+      console.log(data);
     })
   }
-
-
 }
 
 
