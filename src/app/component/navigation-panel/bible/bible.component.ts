@@ -468,7 +468,7 @@ export class BibleComponent implements OnInit {
     this.apiService.workArea(body).subscribe((data) => {
       console.log(data);
       if (data == 1) {
-        let msg = "Successfully added to work Area";
+        let msg = "Work area added successfully.";
         this.showAlert(msg, '#87dc34')
         // this.apiService.workarealist(this.father_id)
         // this.addedToWorkArea.emit(1)

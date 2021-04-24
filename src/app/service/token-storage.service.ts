@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 const TOKEN_KEY = 'auth-token';
-const USER_KEY = 'auth-user';
+const USER_KEY = 'auth-user'|| null;
+
 const LOGIN_STATUS = 'login_status';
 
 @Injectable({
@@ -33,12 +34,10 @@ sessionStorage.getItem(LOGIN_STATUS);
 
   public saveUser(user: any) {
     this.setLoginStatus(true);
-
-   sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+   localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  // public getUser() {
-
-  //   return JSON.parse(sessionStorage.getItem(USER_KEY));
-  // }
+  public getUser() {
+    return localStorage.getItem(USER_KEY);
+  }
 }

@@ -96,7 +96,9 @@ export class PersonalFavsComponent implements OnInit {
       VERSE_COUNT: this.list.length,
     }
     this.authservice.SavePersonalFavList(body).subscribe(data => {
+      console.log(data)
       if(data.status==1){
+       
         this.message="Record Insert sccuccefully"
       }
       else if(data.status==2){

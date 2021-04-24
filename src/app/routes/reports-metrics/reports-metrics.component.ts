@@ -117,7 +117,7 @@ export class ReportsMetricsComponent implements OnInit {
       fixedRowHeight: 120,
       gridType: 'fixed',
       compactType: CompactType.None,
-      margin: 1,
+      margin: 5,
       outerMargin: false,
       minRows: 1,
       maxRows: 100,
@@ -335,7 +335,7 @@ export class ReportsMetricsComponent implements OnInit {
   // RoomExitTimeArray:any=[]
 
   getTodaysChat() {
-    alert(this.currentDateTime1)
+  
     console.log(this.selectedVolunteer)
     this.BBStatToday = true;
     this.BBStatweek = false;

@@ -170,10 +170,10 @@
                     
                         <div class="chat-panel-messages-left ">
                             <div class="chat-panel-header-left-body ">
-                                <h6 style="font-family: 'Montserrat Bold' "> {{lastUsermessage.ROOM_ID}} </h6>
-                                <p> {{ lastUsermessage.LAST_MESSAGE }}</p>
+                                <h6 style="font-family: 'Montserrat Bold' "> {{lastUsermessage?.ROOM_ID}} </h6>
+                                <p> {{ lastUsermessage?.LAST_MESSAGE }}</p>
                             </div>
-                            <span> {{lastUsermessage.createdAt | date:'shortTime'}} </span>
+                            <span> {{lastUsermessage?.createdAt | date:'shortTime'}} </span>
                         </div>
     
                         <div *ngFor="let message of messageList "

@@ -49,8 +49,10 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         localStorage.setItem("adminname", data.first_name)
+        this.tsServicetorageService.saveUser(data);
         console.log(this.userlist)
         this.router.navigateByUrl('dashboard');
+        
       },
       err => {
         this.errorMessage = err.error.message;

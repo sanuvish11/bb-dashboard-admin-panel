@@ -9,7 +9,8 @@ import { TokenStorageService } from './service/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+  user: any;
+  userRecord: any;
   adminname1: any
   timeNow: Date = new Date();
   showHeader = true;
@@ -20,27 +21,30 @@ export class AppComponent implements OnInit {
     this.adminname1 = localStorage.getItem("adminname");
   }
 
-  constructor(private router: Router, private authService:AuthService,private tokenService: TokenStorageService) {
+  constructor(private router: Router, private authService: AuthService, private tokenService: TokenStorageService) {
     setInterval(() => {
       this.timeNow = new Date();
     }, 1);
     this.authService.headerDisplay.subscribe(message => {
       this.showHeader = message;
     });
+    this.user = this.tokenService.getUser();
+    this.userRecord = JSON.parse(this.user)
   }
   getheader() {
     let volunteerId = localStorage.getItem('father_id');
     if (volunteerId != null || volunteerId != undefined) {
       this.showHeader = true;
     }
-   
+
   }
-  
+
   logout() {
-    
- 
+
+
 
     this.tokenService.signOut();
+    localStorage.clear();
     this.authService.headerFlag(false);
     this.router.navigateByUrl('/');
   }

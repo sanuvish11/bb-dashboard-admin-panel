@@ -1158,7 +1158,7 @@ body nav ul li {
     border: 2px solid #78500c;;
     position: relative;
     padding: 0 10px;
-    height: calc(100% - 115px);
+    /* height: calc(100% - 115px); */
     overflow-y: auto;
     border-bottom: 2px solid #78500c;
 }
@@ -1834,10 +1834,9 @@ body nav ul li {
 .journey-sub-wrapper,
 .journey-sub2-wrapper {
     position: relative;
-    //min-width: 330px;
-    //min-height: 380px;
-    border: 2px solid #78500c;
-    /*min-width: 400px;*/
+ 
+    border: 1.4px solid #78500c;
+
     border-radius: 4px;
     background-color: white;
     height: 100%;
