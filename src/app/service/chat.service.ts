@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
@@ -9,12 +10,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
-  constructor(private socket: Socket, private http: HttpClient) { }
+  constructor(private socket: Socket, private http: HttpClient,private datePipe: DatePipe) { }
 
   public initiateChat(name: any, room: any) {
-    this.socket.emit('join room', { username: name, roomName: room });
+    this.socket.emit('join room', { username: name, roomName: room,initiateChatDate:this.datePipe.transform(new Date(), "hh:mm:ss a") });
     console.log("room join " + name + room);
-
 
   }
 

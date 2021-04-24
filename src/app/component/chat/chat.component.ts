@@ -22,7 +22,7 @@ export class ChatComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer!: ElementRef;
   ischatpanel = true;
   isClose = true;
-  roomDataApi:any;
+  roomDataApi: any;
   chatRoomDetail: any;
   chatOverView: any;
   chatMessageCounter = 0
@@ -61,11 +61,12 @@ export class ChatComponent implements OnInit {
     this.authservice.getLiveChatDetail(this.room).subscribe(data => {
       this.singleChatData = data;
       console.log(data);
-      console.log(this.singleChatData);
+      console.log('siglechatdata', this.singleChatData);
+      if (this.singleChatData.length != 0) {
+        //this.updateInitialChatTime();
+      }
     });
     this.viewOthersChat = this.chatService.viewchat();
-
-
     this.options = {
       setGridSize: true,
       gridType: GridType.Fit,
@@ -116,6 +117,15 @@ export class ChatComponent implements OnInit {
     })
 
   }
+
+  updateInitialChatTime() {
+    this.authservice.updateChatIntialTime({
+      Room: localStorage.getItem("roomId"),
+    }).subscribe(data => {
+      console.log('update time', data);
+    })
+  }
+
   toggleclosebtn() {
     if (this.viewOthersChat == true) {
       localStorage.removeItem("confessorName");
@@ -338,12 +348,13 @@ export class ChatComponent implements OnInit {
         IS_FLAG: this.Is_flagged,
         CHAT_OVERVIEW: this.chatOverView,
         FLAG_COMMENT: this.flag_Comment,
-        LAST_MESSAGE_TIME: this.datePipe.transform(new Date(), "hh:mm:ss a")
+        LAST_MESSAGE_TIME: this.datePipe.transform(new Date(), "yyy-MM-dd hh:mm:ss")
       }
       // let status: any;
       this.authservice.closechat(body).subscribe(data => {
         // status = data
         console.log(data);
+
         if (data == 1) {
           this.chatService.disconnectRoom();
           localStorage.removeItem("overView")
@@ -352,6 +363,7 @@ export class ChatComponent implements OnInit {
           localStorage.removeItem('isActiveChat');
           this.chatService.isInitialChat = 0
           this.toggleclosebtn();
+
           this.toggleCloseChatOptions();
           this.ngOnInit()
         }
@@ -499,4 +511,5 @@ export class ChatComponent implements OnInit {
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     } catch (err) { }
   }
+
 }

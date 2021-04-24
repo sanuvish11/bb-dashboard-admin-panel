@@ -109,7 +109,7 @@
                                 <tr>
                                     <th>User ID</th>
                                     <th>Admin ID</th>
-                                    <!-- <th>Duration</th> -->
+                                    <th>Duration</th>
                                     <th>Started At:</th>
                                     <th>Last Message At:</th>
                                     <th>Status</th>
@@ -121,9 +121,12 @@
                                     <td *ngIf="room.IS_FLAG == 0" class="light">{{room.USER_NAME}}</td>
 
                                     <td>{{room.PASTOR_ID}}</td>
-                                    <!-- <td class="dark">222 </td> -->
-                                    <td class="dark">{{room.createdAt | date: 'dd/MM/yyyy mm ss'}}</td>
-                                    <td class="dark">{{room.updatedAt | date: 'dd/MM/yyyy mm ss'}}</td>
+                                    <div [innerHTML]="getTime(room)">
+
+                                    </div>
+                                    <td class="dark" > </td>
+                                    <td class="dark">{{room.createdAt | date}}</td>
+                                    <td class="dark">{{room.updatedAt | date}}</td>
                                     <td *ngIf="room.CHAT_STATUS == 0" class="light">In Queue</td>
                                     <td *ngIf="room.CHAT_STATUS == 1" class="light">Live</td>
                                     <td *ngIf="room.CHAT_STATUS == 2" class="light">Closed</td>

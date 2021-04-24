@@ -253,6 +253,7 @@ export class AuthService {
     return this.http.delete(`${AUTH_API + 'deletejourney'}/${id}`);
   }
   closechat(chat: any) {
+    console.log(chat)
     return this.http.post(AUTH_API + 'closeChat', chat
       // {
       //   ROOM_ID: chat.ROOM_ID,
@@ -428,6 +429,10 @@ export class AuthService {
   getUserListByState(state_id: any) {
     return this.http.get(AUTH_API + 'UserListByState/' + state_id)
   }
+  updateChatIntialTime(object:any) {
+    return this.http.post(AUTH_API + 'updateChatIntialTime',object)
+  }
+  
 }
 
 

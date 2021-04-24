@@ -136,7 +136,7 @@
                 </style>
                 <!-- Text Messages Body -->
                 <!-- <div class="chat-panel-messages-left"> -->
-                <div class="chat-panel-messages-body div1 gridster-item-content " #scrollMe>
+                <div class="chat-panel-messages-body div1 gridster-item-content " >
                     <!-- <div *ngFor="let message of singleChatData">
                         <ng-template [ngIf]="message.sender_id===name" [ngIfElse]="to">
                             <div class="chat-panel-messages-right">
@@ -166,7 +166,7 @@
                         
                     </div>
               -->
-                    <div class="chat-queue chat-msg"  style="display: block;">
+                    <div class="chat-queue chat-msg"  style="display: block;" #scrollMe>
                     
                         <div class="chat-panel-messages-left ">
                             <div class="chat-panel-header-left-body ">

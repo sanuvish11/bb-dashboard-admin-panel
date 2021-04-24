@@ -200,6 +200,22 @@ export class FlagsComponent implements OnInit {
       console.log(data);
     })
   }
+  getTime(room:any) {
+    console.log('test room',room)
+
+    // var date1 = new Date("08/05/2015 23:41:20");
+    // var date2 = new Date("08/06/2015 02:56:32");
+    // var diff = date2.getTime() - date1.getTime();
+    // var msec = diff;
+    // var hh = Math.floor(msec / 1000 / 60 / 60);
+    // msec -= hh * 1000 *60 * 60;
+    // var mm = Math.floor(msec / 1000 / 60);
+    // msec -= mm * 1000 * 60;
+    // var ss = Math.floor(msec / 1000);
+    // msec -= ss * 1000;
+    // return (hh + ":" + mm + ":" + ss);
+    return 1;
+  }
 }
 
 
