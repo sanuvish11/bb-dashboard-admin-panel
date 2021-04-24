@@ -121,7 +121,7 @@ export class ChatService {
         }, (err) => {
           reject(err);
         });
-    });
+    });  
   }
 
   deleteChat(id: any) {

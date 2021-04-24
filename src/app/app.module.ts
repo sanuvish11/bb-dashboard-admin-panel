@@ -65,6 +65,7 @@ import { UserListComponent } from './component/user-list/user-list.component';
 import { ReversePipe } from './component/volunteerregistration/reverse.pipe';
 import { UserlistComponent } from './routes/userlist/userlist.component';
 import { ToastrModule } from 'ngx-toastr';
+import { TimecalculatePipe } from './pipes/timecalculate.pipe';
 
 const config: SocketIoConfig = { url: environment.SocketUrl, options: {} };
 
@@ -120,7 +121,9 @@ const config: SocketIoConfig = { url: environment.SocketUrl, options: {} };
 
     ReversePipe,
 
-    UserlistComponent
+    UserlistComponent,
+
+    TimecalculatePipe
 
   ],
   imports: [CKEditorModule, AngularEditorModule, CommonModule, DragDropModule,
@@ -128,7 +131,7 @@ const config: SocketIoConfig = { url: environment.SocketUrl, options: {} };
     BrowserModule, HttpClientModule, FormsModule, DynamicModule, GridsterModule, DynamicIoModule, CalendarModule, ReactiveFormsModule,
     AppRoutingModule, DragDropModule, SocketIoModule.forRoot(config)
   ],
-  providers: [PositionsService,DatePipe],
+  providers: [PositionsService,DatePipe,TimecalculatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule  {

@@ -447,7 +447,10 @@ export class ChatComponent implements OnInit {
   }
 
   updateChatStatus(chatRoomDetail: any) {
-    this.authservice.updateChatStatus(chatRoomDetail.id, chatRoomDetail.CHAT_STATUS, this.Father_Id).subscribe(data => {
+    this.authservice.updateChatStatus(chatRoomDetail.id, chatRoomDetail.CHAT_STATUS, this.Father_Id).subscribe((data:any) => {
+      if(!data.status){
+        alert(data.message)
+      }
       console.log(data)
     })
   }
