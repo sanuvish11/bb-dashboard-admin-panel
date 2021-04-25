@@ -658,3 +658,9 @@ gridster.fixed {
     overflow: inherit !important;
 
 } */
+gridster-item{
+    overflow: inherit !important;
+ }
+ /* gridster-item.gridster-item-content.chatcomponentexpanded {
+     overflow: inherit !important;
+ } */
