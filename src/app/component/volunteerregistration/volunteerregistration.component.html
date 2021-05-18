@@ -48,8 +48,8 @@
                             User Name is Required
                         </span>
                     </div>
-                    <div class="form-group">
-                        <label>*Password<span>(8 Characters or more including 1 numeric and 1 Special
+                    <div class="col-sm-6 form-group">
+                        <label style="font-size: 11px;">*Password<span>(8 Characters or more including 1 numeric and 1 Special
                                 Character)</span></label>
                         <input type="password" class="form-control" name="password" formControlName="password"
                             placeholder="Enter password" />
@@ -58,7 +58,7 @@
                             Password is required
                         </span>
                     </div>
-                    <div class="form-group">
+                    <div class="col-sm-6 form-group">
                         <label>*Verify Password</label>
                         <input type="password" name="confirmPassword" class="form-control"
                             formControlName="confirmPassword" placeholder="Enter confirm passwword">
@@ -231,9 +231,6 @@
                                 </span>
                             </div>
                             <div class="form-group fixed-small-width">
-
-
-
                                 <label>*City</label>
                                 <select name="church_city" formControlName="church_city" required>
                                     <option value="">Select City</option>

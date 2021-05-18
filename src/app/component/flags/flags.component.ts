@@ -35,29 +35,28 @@ export class FlagsComponent implements OnInit {
     this.isflag = !this.isflag;
     this.thisflag.emit(this.isflag);
   }
-
+  countryId = '';
   constructor(private datePipe: DatePipe, private posServ: PositionsService, private authService: AuthService, private formBuilder: FormBuilder) {
     this.ChatFlagFrom = this.formBuilder.group({
       username: ['', Validators.required],
       status: ['', Validators.required],
-      country: ['', Validators.required],
+      country: [this.countryId, Validators.required],
       state: ['', Validators.required],
       startMonth: ['', Validators.required],
       endMonth: ['', Validators.required],
       TimeZone: ['', Validators.required],
       fromTime: ['', Validators.required],
       toTime: ['', Validators.required],
-    })
-
-
+    });
     // setInterval(() => {
     //   this.timeNow = new Date();
     // }, 1);
   }
   ngOnInit() {
     this.getAllChatRooms();
-    this.getuserList();
+    this.getuserList(this.ChatFlagFrom?.value.country);
     this.getCountryList();
+    // this.seletCounty();
     this.chatEndDate = '';
     this.options = {
       setGridSize: true,
@@ -141,37 +140,47 @@ export class FlagsComponent implements OnInit {
   }
 
   //shanu
-  getuserList() {
-    this.authService.getUserList().subscribe(data => {
-      this.userlist = data;
-      console.log(this.userlist)
-    })
+  getuserList(id = '') {
+    if(id == ''){
+      this.authService.getUserList().subscribe(data => {
+        this.userlist = data;
+        console.log(this.userlist)
+      })
+      }else {
+        this.authService.getUserListByCountry(id).subscribe(data => {
+          this.userlist = data;
+        })
+      }
   }
   getCountryList() {
     this.authService.getcountry().subscribe(data => {
+      let obj = data.find(function (element: any) {
+        if(element.country_name == 'United States') {
+          return  element.id;
+        }
+      });
+      console.log('manish getCountryList', obj.id);
+      this.countryId = obj.id;
+      this.ChatFlagFrom?.controls['country'].setValue(this.countryId);
       this.countryList = data;
-    })
+      this.getuserList(this.ChatFlagFrom?.value.country);
+      this.seletCounty();
+    });
   }
   seletCounty() {
+    console.log('manish data seletCounty',this.countryId)
     const body = {
-      country_id: this.ChatFlagFrom?.value.country
+      country_id: parseInt(this.ChatFlagFrom?.value.country)
     }
     this.authService.getstate(body).subscribe(data => {
-      this.stateList = data
-      console.log(this.stateList)
-    })
-
-    this.authService.getUserListByCountry(this.ChatFlagFrom?.value.country).subscribe(data => {
-      this.userlist = data;
-
-    })
-
+      this.stateList = data;
+      this.getuserList(this.ChatFlagFrom?.value.country);
+    });
   }
   //get statte by 
   seletedState() {
     this.authService.getUserListByState(this.ChatFlagFrom?.value.state).subscribe(data => {
       this.userlist = data;
-
     })
   }
   reset() {
@@ -201,19 +210,6 @@ export class FlagsComponent implements OnInit {
     })
   }
   getTime(room:any) {
-    console.log('test room',room)
-
-    // var date1 = new Date("08/05/2015 23:41:20");
-    // var date2 = new Date("08/06/2015 02:56:32");
-    // var diff = date2.getTime() - date1.getTime();
-    // var msec = diff;
-    // var hh = Math.floor(msec / 1000 / 60 / 60);
-    // msec -= hh * 1000 *60 * 60;
-    // var mm = Math.floor(msec / 1000 / 60);
-    // msec -= mm * 1000 * 60;
-    // var ss = Math.floor(msec / 1000);
-    // msec -= ss * 1000;
-    // return (hh + ":" + mm + ":" + ss);
     return 1;
   }
 }

@@ -36,7 +36,7 @@ export class VolunteerregistrationComponent implements OnInit {
   state_id: any;
 
   message: any;
-
+  countryId = 233;
   constructor(private authService: AuthService, private formBuilder: FormBuilder) {
     this.volnteerForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -46,7 +46,7 @@ export class VolunteerregistrationComponent implements OnInit {
       middle_name: [''],
       gender: ['', Validators.required],
       email: ['', Validators.required],
-      country: ['', Validators.required],
+      country: [this.countryId, Validators.required],
       state: ['', Validators.required],
       city: ['', Validators.required],
       year: ['', Validators.required],
@@ -68,13 +68,14 @@ export class VolunteerregistrationComponent implements OnInit {
 
     this.authService.getcountry().subscribe(
       data => {
-        console.log(this.form);
-        console.log(data);
+        // console.log(this.form);
+        // console.log(data);
         this.list = data;
       },
       err => {
 
       });
+      this.seletcountry();
   }
 
 
@@ -96,11 +97,8 @@ export class VolunteerregistrationComponent implements OnInit {
 
       });
   }
-
+  
   selectstate(id: any) {
-    console.log(id)
-    //  let singleChatData = this.UserRoomList.find((x: { id: any; }) => x.id === id)
-    console.log(this.volnteerForm.value.country)
     this.form.state_id = this.volnteerForm.value.country;
     this.authService.getcity(this.form).subscribe(
       data => {

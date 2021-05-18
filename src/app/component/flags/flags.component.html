@@ -18,6 +18,24 @@
             <div class="search-area">
                 <div>
                     <div class="form-group">
+                        <label>Country</label>
+                        <select formControlName="country" (change)="seletCounty(country)" name="country">
+                            <option value="" disabled>Country..</option>
+                            <option *ngFor="let country of countryList" value="{{country.id}}">
+                                {{country.country_name}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>State</label>
+                        <select formControlName="state" (change)="seletedState(state)" id="state">
+                            <option value="" disabled>State..</option>
+                            <option *ngFor="let state of stateList" value="{{state.id}}">
+                                {{state.state_name}} </option>
+                        </select>
+                    </div>   
+                    <div class="form-group">
                         <label>Volunteer</label>
                         <select formControlName="username" name="username">
                             <option value="">Name..</option>
@@ -35,24 +53,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label>Country</label>
-                        <select formControlName="country" (change)="seletCounty(country)" name="country">
-                            <option value="" disabled>Country..</option>
-                            <option *ngFor="let country of countryList" value="{{country.id}}">
-                                {{country.country_name}}
-                            </option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>State</label>
-                        <select formControlName="state" (change)="seletCounty(state)" id="state">
-                            <option value="" disabled>State..</option>
-                            <option *ngFor="let state of stateList" value="{{state.id}}">
-                                {{state.state_name}} </option>
-                        </select>
-                    </div>
+                    
                 </div>
                 <div>
 
