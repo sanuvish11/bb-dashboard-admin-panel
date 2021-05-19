@@ -75,15 +75,15 @@ export class DashboardComponent implements OnInit {
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
-        cols: 5,
+        rows: 4,
+        cols: 6,
       },
       {
         widget: "bibleCB",
         is_active: false,
         x: 0,
         y: 0,
-        rows: 5,
+        rows: 4,
         cols: 6,
       },
       {
@@ -167,18 +167,12 @@ export class DashboardComponent implements OnInit {
         cols: 10,
       },
       ]
-
-
-
-
     }
     else {
       this.Compononent = this.getPositionsFromLS();
       console.log(this.Compononent)
     }
-
     this.gridsterInit();
-
   }
 
   ngOnInit(): void {
@@ -287,13 +281,6 @@ export class DashboardComponent implements OnInit {
 
   }
 
-
-
-
-
-
-
-
   componentPicked(e: any) {
     // console.log(e.target.outerText)
     console.log(e)
@@ -394,17 +381,21 @@ export class DashboardComponent implements OnInit {
 
   bibleOutput = {
     isbiblecom: (e: any) => {
+      console.log('manish isbiblecom')
       this.Compononent[2].is_active = e;
       localStorage.setItem('dashBoardComponent', JSON.stringify(this.Compononent));
     },
     addedToWorkArea: (e: any) => {
+      console.log('manish addedToWorkArea')
       this.addedToWorkAreainput = e + this.addedToWorkAreainput;
       console.log(this.addedToWorkAreainput)
     },
     bibleVerseOutput: (e: any) => {
+      console.log('manish bibleVerseOutput', e)
       this.Compononent[4].is_active = e;
     },
     openCrossRef: (e: any) => {
+      console.log('manish openCrossRef', e)
       this.Compononent[5].is_active = e
     }
   }
