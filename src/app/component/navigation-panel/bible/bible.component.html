@@ -38,18 +38,14 @@
                     <div class="row biblechapterTable" *ngIf="oldTestament">
                         <div class="col-1 borderdisplay" *ngFor="let item of allbibleChapters">
                             <span (click)="bookChapters(item.BOOK_ABBR)">{{item.BOOK_ABBR}}</span>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
             <!-- <div class="testament gridster-item-content" *ngIf="oldTestament">
                
             </div> -->
-            <div *ngIf="!SearchHeader">
+            <div class="biblechapterTable" *ngIf="!SearchHeader">
                 <h5> {{bookFullName}}</h5>
             </div>
             <div class="row biblechapterTable" (click)="toogelheader()" *ngIf="chapterList">
@@ -109,12 +105,12 @@
                         <a class="bible-navigation-dot-menu" href="javascript:void(0) " (click)="toggleShow()"
                             type="checkbox"><i class="fa fa-ellipsis-v" aria-hidden="true "></i></a>
                     </div>
-                    <div class=" div1" style="height: 75%!important;">
+                    <div class="div1" style="max-height: 178px;overflow-y: auto;">
                         <div [hidden]="!collapse">
 
                             <style>
                                 .div1 {
-                                    overflow-y: scroll;
+                                    overflow-y: auto;
                                     height: 200px;
                                 }
                             </style>
@@ -172,7 +168,7 @@
                                                         <tr *ngFor="let item of sts">
                                                             <td>{{item.value}}</td>
                                                             <td (click)="onSelect(item)">
-                                                                {{item.strong}} </td>
+                                                                {{item.strong}}</td>
                                                         </tr>
                                                         <tr *ngFor="let item of strongsList" [hidden]="!strong">
                                                             <td>{{item.word}}</td>

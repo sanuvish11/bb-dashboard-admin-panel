@@ -115,7 +115,8 @@ export class BibleComponent implements OnInit {
     }
     this.getbiblebooks()
     this.updateToggle()
-
+    this.bibleVerseOutput.emit(false);
+    this.openCrossRef.emit(false);
   }
   toogelehide() {
     this.number = !this.number;
@@ -247,6 +248,7 @@ export class BibleComponent implements OnInit {
   selectstrong: any;
 
   getStrong(verse: any, text: any) {
+    // alert('getStrong');
     this.showBible = false
     this.verse = verse;
     this.verseText = text
@@ -395,8 +397,6 @@ export class BibleComponent implements OnInit {
   }
   onSelect(strong: any) {
     this.isbiblecom.emit({ status: true, isclose: 0 });
-    console.log(strong);
-
     localStorage.setItem("version", this.version);
     localStorage.setItem("strong", JSON.stringify(strong));
   }
@@ -443,7 +443,6 @@ export class BibleComponent implements OnInit {
   @Output() bibleVerseOutput = new EventEmitter();
 
   onVerse(code: any, word: string) {
-    console.log("strong clicked")
     // this.isbiblecom.emit({ status: false, isclose: 1 });
     localStorage.setItem("code", code);
     localStorage.removeItem('strong');
